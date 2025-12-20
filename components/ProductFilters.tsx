@@ -40,7 +40,11 @@ export default function ProductFilters({ products }: ProductFiltersProps) {
   const searchParams = useSearchParams();
   const searchQuery = searchParams.get("search") || "";
   const categoryParam = searchParams.get("category");
+  const currentPage = parseInt(searchParams.get("page") || "1");
   const router = useRouter();
+
+  // Pagination constants
+  const ITEMS_PER_PAGE = 20;
 
   // Handler to clear search and reset to all products
   const handleClearSearch = () => {
@@ -64,6 +68,16 @@ export default function ProductFilters({ products }: ProductFiltersProps) {
       setTempPriceRange(priceRange);
     }
   }, [isFilterOpen, selectedCategory, sortBy, priceRange]);
+
+  // Reset to page 1 when filters change
+  useEffect(() => {
+    if (currentPage !== 1) {
+      const params = new URLSearchParams(searchParams.toString());
+      params.delete("page");
+      const newUrl = params.toString() ? `/?${params.toString()}` : "/";
+      router.push(newUrl);
+    }
+  }, [selectedCategory, sortBy, priceRange, searchQuery]);
 
   // Handler to apply filters from sidebar
   const handleApplyFilters = () => {
@@ -138,13 +152,13 @@ export default function ProductFilters({ products }: ProductFiltersProps) {
               (p) => p.price >= 1000 && p.price < 10000
             );
             break;
-          case "10000-50000":
+          case "10000-25000":
             filtered = filtered.filter(
-              (p) => p.price >= 10000 && p.price < 50000
+              (p) => p.price >= 10000 && p.price < 25000
             );
             break;
-          case "over-50000":
-            filtered = filtered.filter((p) => p.price >= 50000);
+          case "over-25000":
+            filtered = filtered.filter((p) => p.price >= 25000);
             break;
         }
       }
@@ -172,6 +186,30 @@ export default function ProductFilters({ products }: ProductFiltersProps) {
     return filtered;
   }, [products, selectedCategory, sortBy, priceRange, searchQuery]);
 
+  // Pagination calculations
+  const totalPages = Math.ceil(
+    filteredAndSortedProducts.length / ITEMS_PER_PAGE
+  );
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const endIndex = startIndex + ITEMS_PER_PAGE;
+  const paginatedProducts = filteredAndSortedProducts.slice(
+    startIndex,
+    endIndex
+  );
+
+  // Handler to change page
+  const handlePageChange = (page: number) => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (page === 1) {
+      params.delete("page");
+    } else {
+      params.set("page", page.toString());
+    }
+    const newUrl = params.toString() ? `/?${params.toString()}` : "/";
+    router.push(newUrl);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   // Check if any filters are active
   const hasActiveFilters =
     selectedCategory !== "All" || priceRange !== "all" || sortBy !== "featured";
@@ -197,10 +235,10 @@ export default function ProductFilters({ products }: ProductFiltersProps) {
           return "Under 1K";
         case "1000-10000":
           return "1K - 10K";
-        case "10000-50000":
-          return "10K - 50K";
-        case "over-50000":
-          return "Over 50K";
+        case "10000-25000":
+          return "10K - 25K";
+        case "over-25000":
+          return "Over 25K";
         default:
           return "";
       }
@@ -403,8 +441,8 @@ export default function ProductFilters({ products }: ProductFiltersProps) {
                 <option value="all">All Prices</option>
                 <option value="under-1000">Under EGP 1,000</option>
                 <option value="1000-10000">EGP 1,000 - 10,000</option>
-                <option value="10000-50000">EGP 10,000 - 50,000</option>
-                <option value="over-50000">Over EGP 50,000</option>
+                <option value="10000-25000">EGP 10,000 - 25,000</option>
+                <option value="over-25000">Over EGP 25,000</option>
               </select>
 
               {/* Sort */}
@@ -452,11 +490,107 @@ export default function ProductFilters({ products }: ProductFiltersProps) {
             <p className="text-gray-500">Try adjusting your filters</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {filteredAndSortedProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
+          <>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {paginatedProducts.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
+
+            {/* Pagination */}
+            {totalPages > 1 && (
+              <div className="mt-8 flex items-center justify-center gap-2">
+                {/* Previous Button */}
+                <button
+                  onClick={() => handlePageChange(currentPage - 1)}
+                  disabled={currentPage === 1}
+                  className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+                    currentPage === 1
+                      ? "bg-gray-200 text-gray-400 cursor-not-allowed"
+                      : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                  }`}
+                >
+                  Previous
+                </button>
+
+                {/* Page Numbers */}
+                <div className="flex gap-2">
+                  {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                    (page) => {
+                      // Show first page, last page, current page, and pages around current
+                      const showPage =
+                        page === 1 ||
+                        page === totalPages ||
+                        (page >= currentPage - 1 && page <= currentPage + 1);
+
+                      // Show ellipsis
+                      const showEllipsisBefore =
+                        page === currentPage - 1 && currentPage > 3;
+                      const showEllipsisAfter =
+                        page === currentPage + 1 &&
+                        currentPage < totalPages - 2;
+
+                      if (
+                        !showPage &&
+                        !showEllipsisBefore &&
+                        !showEllipsisAfter
+                      )
+                        return null;
+
+                      if (showEllipsisBefore && page === currentPage - 1) {
+                        return (
+                          <span
+                            key={`ellipsis-before-${page}`}
+                            className="px-4 py-2 text-gray-500"
+                          >
+                            ...
+                          </span>
+                        );
+                      }
+
+                      if (showEllipsisAfter && page === currentPage + 1) {
+                        return (
+                          <span
+                            key={`ellipsis-after-${page}`}
+                            className="px-4 py-2 text-gray-500"
+                          >
+                            ...
+                          </span>
+                        );
+                      }
+
+                      return (
+                        <button
+                          key={page}
+                          onClick={() => handlePageChange(page)}
+                          className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+                            currentPage === page
+                              ? "bg-yallashop-yellow text-yallashop-navy"
+                              : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                          }`}
+                        >
+                          {page}
+                        </button>
+                      );
+                    }
+                  )}
+                </div>
+
+                {/* Next Button */}
+                <button
+                  onClick={() => handlePageChange(currentPage + 1)}
+                  disabled={currentPage === totalPages}
+                  className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+                    currentPage === totalPages
+                      ? "bg-gray-200 text-gray-400 cursor-not-allowed"
+                      : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                  }`}
+                >
+                  Next
+                </button>
+              </div>
+            )}
+          </>
         )}
 
         {/* Filter Sidebar - Mobile Only */}

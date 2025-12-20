@@ -123,7 +123,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-yallashop-navy-dark mt-8 pt-8 text-sm text-center text-gray-400">
-          <p>&copy; 2025 YallaShop. All rights reserved.</p>
+          <p>&copy; 2026 Samir Magdy. All rights reserved.</p>
         </div>
       </div>
     </footer>
