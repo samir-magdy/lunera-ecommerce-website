@@ -38,13 +38,13 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="bg-yallashop-navy sticky top-0 z-40 shadow-md">
+      <nav className="bg-ecommerce-navy sticky top-0 z-40 shadow-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <Link href="/" className="flex items-center space-x-2">
-              <div className="text-3xl font-bold text-yallashop-yellow">
-                YallaShop
+              <div className="text-3xl font-bold text-ecommerce-yellow">
+                E-Commerce
               </div>
             </Link>
 
@@ -57,11 +57,11 @@ export default function Navbar() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   onKeyDown={handleKeyDown}
-                  className="w-full px-4 py-2 rounded-lg border-2 border-transparent focus:border-yallashop-yellow focus:outline-none"
+                  className="w-full px-4 py-2 rounded-lg border-2 border-transparent focus:border-ecommerce-yellow focus:outline-none"
                 />
                 <button
                   onClick={handleSearch}
-                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-yallashop-yellow text-yallashop-navy px-4 py-1 rounded-md font-semibold hover:bg-yellow-500"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-ecommerce-yellow text-ecommerce-navy px-4 py-1 rounded-md font-semibold hover:bg-yellow-500"
                 >
                   Search
                 </button>
@@ -70,7 +70,7 @@ export default function Navbar() {
 
             {/* Right Side - Cart & User */}
             <div className="flex items-center space-x-6">
-              <button className="hidden md:flex items-center space-x-2 text-white hover:text-yallashop-yellow cursor-pointer">
+              <button className="hidden md:flex items-center space-x-2 text-white hover:text-ecommerce-yellow cursor-pointer">
                 <svg
                   className="w-6 h-6"
                   fill="none"
@@ -104,11 +104,11 @@ export default function Navbar() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyDown={handleKeyDown}
-                className="w-full px-4 py-2 rounded-lg border-2 border-transparent focus:border-yallashop-yellow focus:outline-none text-sm"
+                className="w-full px-4 py-2 rounded-lg border-2 border-transparent focus:border-ecommerce-yellow focus:outline-none text-sm"
               />
               <button
                 onClick={handleSearch}
-                className="absolute right-2 top-1/2 -translate-y-1/2 bg-yallashop-yellow text-yallashop-navy px-3 py-1 rounded-md font-semibold text-sm hover:bg-yallashop-yellow-light"
+                className="absolute right-2 top-1/2 -translate-y-1/2 bg-ecommerce-yellow text-ecommerce-navy px-3 py-1 rounded-md font-semibold text-sm hover:bg-ecommerce-yellow-light"
               >
                 Search
               </button>

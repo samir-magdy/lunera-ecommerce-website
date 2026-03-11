@@ -8,7 +8,7 @@ export default function CartButton() {
   return (
     <button
       onClick={() => setIsCartOpen(true)}
-      className="relative flex items-center space-x-2 text-white hover:text-yallashop-yellow"
+      className="relative flex items-center space-x-2 text-white hover:text-ecommerce-yellow"
     >
       <svg
         className="w-6 h-6"
@@ -25,7 +25,7 @@ export default function CartButton() {
       </svg>
       <span className="text-sm hidden sm:inline">Cart</span>
       {cartCount > 0 && (
-        <span className="absolute -top-2.5 -right-2.5 bg-yallashop-yellow text-yallashop-navy text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+        <span className="absolute -top-2.5 -right-2.5 bg-ecommerce-yellow text-ecommerce-navy text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
           {cartCount > 99 ? "99+" : cartCount}
         </span>
       )}

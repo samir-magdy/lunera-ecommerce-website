@@ -31,13 +31,6 @@ export default function ProductLoading() {
                 <div className="h-8 w-3/4 bg-gray-300 rounded"></div>
               </div>
 
-              {/* Rating */}
-              <div className="flex items-center gap-3">
-                <div className="h-5 w-32 bg-gray-300 rounded"></div>
-                <div className="h-5 w-12 bg-gray-300 rounded"></div>
-                <div className="h-5 w-24 bg-gray-300 rounded"></div>
-              </div>
-
               {/* Price */}
               <div className="space-y-2">
                 <div className="h-10 w-48 bg-gray-300 rounded"></div>

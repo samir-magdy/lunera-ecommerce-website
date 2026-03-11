@@ -1,17 +1,18 @@
 import { Suspense } from "react";
 import ProductFilters from "@/components/ProductFilters";
-import products from "@/data/products.json";
+import { getProducts } from "@/sanity/lib/products";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const products = await getProducts();
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Banner */}
-      <div className="hidden md:block bg-gradient-to-r from-yallashop-navy to-yallashop-navy-dark text-white">
+      <div className="hidden md:block bg-gradient-to-r from-ecommerce-navy to-ecommerce-navy-dark text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
               Welcome to{" "}
-              <span className="text-yallashop-yellow">YallaShop</span>
+              <span className="text-ecommerce-yellow">E-Commerce</span>
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-gray-300">
               Discover amazing products at unbeatable prices
@@ -19,7 +20,7 @@ export default function HomePage() {
             <div className="flex flex-wrap justify-center gap-4 text-sm">
               <div className="flex items-center gap-2">
                 <svg
-                  className="w-6 h-6 text-yallashop-yellow"
+                  className="w-6 h-6 text-ecommerce-yellow"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -35,7 +36,7 @@ export default function HomePage() {
               </div>
               <div className="flex items-center gap-2">
                 <svg
-                  className="w-6 h-6 text-yallashop-yellow"
+                  className="w-6 h-6 text-ecommerce-yellow"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -51,7 +52,7 @@ export default function HomePage() {
               </div>
               <div className="flex items-center gap-2">
                 <svg
-                  className="w-6 h-6 text-yallashop-yellow"
+                  className="w-6 h-6 text-ecommerce-yellow"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"

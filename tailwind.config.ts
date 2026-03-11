@@ -12,7 +12,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        yallashop: {
+        ecommerce: {
           yellow: '#FFC600',
           navy: '#003F62',
           'navy-dark': '#002940',

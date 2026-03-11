@@ -15,8 +15,6 @@ interface Product {
   subcategory: string;
   image: string;
   description: string;
-  rating: number;
-  reviews: number;
   inStock: boolean;
   brand: string;
 }
@@ -172,9 +170,6 @@ export default function ProductFilters({ products }: ProductFiltersProps) {
       case "price-high":
         filtered.sort((a, b) => b.price - a.price);
         break;
-      case "rating":
-        filtered.sort((a, b) => b.rating - a.rating);
-        break;
       case "name":
         filtered.sort((a, b) => a.title.localeCompare(b.title));
         break;
@@ -249,8 +244,6 @@ export default function ProductFilters({ products }: ProductFiltersProps) {
           return "Price: Low-High";
         case "price-high":
           return "Price: High-Low";
-        case "rating":
-          return "Highest Rated";
         case "name":
           return "A-Z";
         default:
@@ -269,7 +262,7 @@ export default function ProductFilters({ products }: ProductFiltersProps) {
             {selectedCategory !== "All" && (
               <button
                 onClick={() => setSelectedCategory("All")}
-                className="flex items-center gap-1 px-3 py-1.5 bg-yallashop-yellow text-yallashop-navy rounded-full text-sm font-medium whitespace-nowrap"
+                className="flex items-center gap-1 px-3 py-1.5 bg-ecommerce-yellow text-ecommerce-navy rounded-full text-sm font-medium whitespace-nowrap"
               >
                 {getFilterLabel("category", selectedCategory)}
                 <svg
@@ -290,7 +283,7 @@ export default function ProductFilters({ products }: ProductFiltersProps) {
             {priceRange !== "all" && (
               <button
                 onClick={() => setPriceRange("all")}
-                className="flex items-center gap-1 px-3 py-1.5 bg-yallashop-yellow text-yallashop-navy rounded-full text-sm font-medium whitespace-nowrap"
+                className="flex items-center gap-1 px-3 py-1.5 bg-ecommerce-yellow text-ecommerce-navy rounded-full text-sm font-medium whitespace-nowrap"
               >
                 {getFilterLabel("price", priceRange)}
                 <svg
@@ -311,7 +304,7 @@ export default function ProductFilters({ products }: ProductFiltersProps) {
             {sortBy !== "featured" && (
               <button
                 onClick={() => setSortBy("featured")}
-                className="flex items-center gap-1 px-3 py-1.5 bg-yallashop-yellow text-yallashop-navy rounded-full text-sm font-medium whitespace-nowrap"
+                className="flex items-center gap-1 px-3 py-1.5 bg-ecommerce-yellow text-ecommerce-navy rounded-full text-sm font-medium whitespace-nowrap"
               >
                 {getFilterLabel("sort", sortBy)}
                 <svg
@@ -347,7 +340,7 @@ export default function ProductFilters({ products }: ProductFiltersProps) {
             <div>
               <h2 className="text-2xl font-bold text-gray-900">
                 Search results for:{" "}
-                <span className="text-yallashop-navy">
+                <span className="text-ecommerce-navy">
                   &quot;{searchQuery}&quot;
                 </span>
               </h2>
@@ -389,7 +382,7 @@ export default function ProductFilters({ products }: ProductFiltersProps) {
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="md:hidden w-full px-4 py-3 rounded-lg border border-gray-300 text-sm font-medium focus:outline-none focus:border-yallashop-yellow cursor-pointer bg-white appearance-none"
+                className="md:hidden w-full px-4 py-3 rounded-lg border border-gray-300 text-sm font-medium focus:outline-none focus:border-ecommerce-yellow cursor-pointer bg-white appearance-none"
                 style={{
                   backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23374151'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E")`,
                   backgroundRepeat: "no-repeat",
@@ -413,7 +406,7 @@ export default function ProductFilters({ products }: ProductFiltersProps) {
                     onClick={() => setSelectedCategory(cat)}
                     className={`px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
                       selectedCategory === cat
-                        ? "bg-yallashop-yellow text-yallashop-navy"
+                        ? "bg-ecommerce-yellow text-ecommerce-navy"
                         : "bg-gray-200 text-gray-700 hover:bg-gray-300"
                     }`}
                   >
@@ -429,7 +422,7 @@ export default function ProductFilters({ products }: ProductFiltersProps) {
               <select
                 value={priceRange}
                 onChange={(e) => setPriceRange(e.target.value)}
-                className="w-1/2 md:w-auto px-4 py-3 rounded-lg border border-gray-300 text-sm focus:outline-none focus:border-yallashop-yellow cursor-pointer appearance-none"
+                className="w-1/2 md:w-auto px-4 py-3 rounded-lg border border-gray-300 text-sm focus:outline-none focus:border-ecommerce-yellow cursor-pointer appearance-none"
                 style={{
                   backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23374151'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E")`,
                   backgroundRepeat: "no-repeat",
@@ -449,7 +442,7 @@ export default function ProductFilters({ products }: ProductFiltersProps) {
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="w-1/2 md:w-auto cursor-pointer px-4 py-3 rounded-lg border border-gray-300 text-sm focus:outline-none focus:border-yallashop-yellow appearance-none"
+                className="w-1/2 md:w-auto cursor-pointer px-4 py-3 rounded-lg border border-gray-300 text-sm focus:outline-none focus:border-ecommerce-yellow appearance-none"
                 style={{
                   backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23374151'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E")`,
                   backgroundRepeat: "no-repeat",
@@ -461,7 +454,6 @@ export default function ProductFilters({ products }: ProductFiltersProps) {
                 <option value="featured">Featured</option>
                 <option value="price-low">Price: Low to High</option>
                 <option value="price-high">Price: High to Low</option>
-                <option value="rating">Highest Rated</option>
                 <option value="name">Name: A to Z</option>
               </select>
             </div>
@@ -565,7 +557,7 @@ export default function ProductFilters({ products }: ProductFiltersProps) {
                           onClick={() => handlePageChange(page)}
                           className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                             currentPage === page
-                              ? "bg-yallashop-yellow text-yallashop-navy"
+                              ? "bg-ecommerce-yellow text-ecommerce-navy"
                               : "bg-gray-200 text-gray-700 hover:bg-gray-300"
                           }`}
                         >

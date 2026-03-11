@@ -55,10 +55,10 @@ export default function AddToCartButton({
     !product.inStock && product.inStock !== undefined
       ? `${baseClasses} ${sizeClasses} bg-gray-300 text-gray-500 cursor-not-allowed`
       : isInCart
-      ? `${baseClasses} ${sizeClasses} bg-white border-2 border-yallashop-yellow text-yallashop-navy hover:bg-yallashop-yellow`
+      ? `${baseClasses} ${sizeClasses} bg-white border-2 border-ecommerce-yellow text-ecommerce-navy hover:bg-ecommerce-yellow`
       : justAdded
       ? `${baseClasses} ${sizeClasses} bg-green-500 text-white`
-      : `${baseClasses} ${sizeClasses} bg-yallashop-yellow text-yallashop-navy hover:bg-yellow-500`;
+      : `${baseClasses} ${sizeClasses} bg-ecommerce-yellow text-ecommerce-navy hover:bg-yellow-500`;
 
   if (!product.inStock && product.inStock !== undefined) {
     return (

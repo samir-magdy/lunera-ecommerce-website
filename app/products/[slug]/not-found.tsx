@@ -25,7 +25,7 @@ export default function ProductNotFound() {
         </p>
         <Link
           href="/"
-          className="inline-block bg-yallashop-yellow text-yallashop-navy px-8 py-3 rounded-lg font-semibold hover:bg-yallashop-yellow-light transition-colors"
+          className="inline-block bg-ecommerce-yellow text-ecommerce-navy px-8 py-3 rounded-lg font-semibold hover:bg-ecommerce-yellow-light transition-colors"
         >
           Back to Homepage
         </Link>

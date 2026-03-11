@@ -6,9 +6,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "YallaShop",
+  title: "E-Commerce",
   description:
-    "Shop electronics, fashion, home & kitchen, beauty products and more at YallaShop.com",
+    "Shop electronics, fashion, home & kitchen, beauty products and more at E-Commerce.com",
 };
 
 export default function RootLayout({

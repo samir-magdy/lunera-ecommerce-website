@@ -1,31 +1,31 @@
 export default function Footer() {
   return (
-    <footer className="bg-yallashop-navy text-white mt-16">
+    <footer className="bg-ecommerce-navy text-white mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* About */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-yallashop-yellow">
-              About YallaShop
+            <h3 className="text-lg font-semibold mb-4 text-ecommerce-yellow">
+              About E-Commerce
             </h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a className="cursor-pointer hover:text-yallashop-yellow">
+                <a className="cursor-pointer hover:text-ecommerce-yellow">
                   About Us
                 </a>
               </li>
               <li>
-                <a className="cursor-pointer hover:text-yallashop-yellow">
+                <a className="cursor-pointer hover:text-ecommerce-yellow">
                   Contact Us
                 </a>
               </li>
               <li>
-                <a className="cursor-pointer hover:text-yallashop-yellow">
+                <a className="cursor-pointer hover:text-ecommerce-yellow">
                   Careers
                 </a>
               </li>
               <li>
-                <a className="cursor-pointer hover:text-yallashop-yellow">
+                <a className="cursor-pointer hover:text-ecommerce-yellow">
                   Press
                 </a>
               </li>
@@ -34,27 +34,27 @@ export default function Footer() {
 
           {/* Help */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-yallashop-yellow">
+            <h3 className="text-lg font-semibold mb-4 text-ecommerce-yellow">
               Customer Care
             </h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a className="cursor-pointer hover:text-yallashop-yellow">
+                <a className="cursor-pointer hover:text-ecommerce-yellow">
                   Help Center
                 </a>
               </li>
               <li>
-                <a className="cursor-pointer hover:text-yallashop-yellow">
+                <a className="cursor-pointer hover:text-ecommerce-yellow">
                   Track Order
                 </a>
               </li>
               <li>
-                <a className="cursor-pointer hover:text-yallashop-yellow">
+                <a className="cursor-pointer hover:text-ecommerce-yellow">
                   Returns
                 </a>
               </li>
               <li>
-                <a className="cursor-pointer hover:text-yallashop-yellow">
+                <a className="cursor-pointer hover:text-ecommerce-yellow">
                   Shipping Info
                 </a>
               </li>
@@ -63,22 +63,22 @@ export default function Footer() {
 
           {/* Payment */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-yallashop-yellow">
+            <h3 className="text-lg font-semibold mb-4 text-ecommerce-yellow">
               Payment Methods
             </h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a className="cursor-pointer hover:text-yallashop-yellow">
+                <a className="cursor-pointer hover:text-ecommerce-yellow">
                   Credit/Debit Card
                 </a>
               </li>
               <li>
-                <a className="cursor-pointer hover:text-yallashop-yellow">
+                <a className="cursor-pointer hover:text-ecommerce-yellow">
                   Cash on Delivery
                 </a>
               </li>
               <li>
-                <a className="cursor-pointer hover:text-yallashop-yellow">
+                <a className="cursor-pointer hover:text-ecommerce-yellow">
                   Installments
                 </a>
               </li>
@@ -87,11 +87,11 @@ export default function Footer() {
 
           {/* Social */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-yallashop-yellow">
+            <h3 className="text-lg font-semibold mb-4 text-ecommerce-yellow">
               Follow Us
             </h3>
             <div className="flex space-x-4">
-              <a className="cursor-pointer hover:text-yallashop-yellow">
+              <a className="cursor-pointer hover:text-ecommerce-yellow">
                 <svg
                   className="w-6 h-6"
                   fill="currentColor"
@@ -100,7 +100,7 @@ export default function Footer() {
                   <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                 </svg>
               </a>
-              <a className="cursor-pointer hover:text-yallashop-yellow">
+              <a className="cursor-pointer hover:text-ecommerce-yellow">
                 <svg
                   className="w-6 h-6"
                   fill="currentColor"
@@ -109,7 +109,7 @@ export default function Footer() {
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                 </svg>
               </a>
-              <a className="cursor-pointer hover:text-yallashop-yellow">
+              <a className="cursor-pointer hover:text-ecommerce-yellow">
                 <svg
                   className="w-6 h-6"
                   fill="currentColor"
@@ -122,7 +122,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-yallashop-navy-dark mt-8 pt-8 text-sm text-center text-gray-400">
+        <div className="border-t border-ecommerce-navy-dark mt-8 pt-8 text-sm text-center text-gray-400">
           <p>&copy; 2026 Samir Magdy. All rights reserved.</p>
         </div>
       </div>

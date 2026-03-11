@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 :root {
-  --yallashop-yellow: #FFC600;
-  --yallashop-navy: #003F62;
-  --yallashop-navy-dark: #002940;
-  --yallashop-yellow-light: #FFD84D;
+  --ecommerce-yellow: #FFC600;
+  --ecommerce-navy: #003F62;
+  --ecommerce-navy-dark: #002940;
+  --ecommerce-yellow-light: #FFD84D;
 }
 
 body {
@@ -91,7 +91,7 @@ body {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: var(--yallashop-navy);
+  background: var(--ecommerce-navy);
   cursor: pointer;
   border: 3px solid white;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
@@ -100,7 +100,7 @@ body {
 }
 
 .range-slider-thumb::-webkit-slider-thumb:hover {
-  background: var(--yallashop-navy-dark);
+  background: var(--ecommerce-navy-dark);
   transform: scale(1.1);
 }
 
@@ -112,7 +112,7 @@ body {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: var(--yallashop-navy);
+  background: var(--ecommerce-navy);
   cursor: pointer;
   border: 3px solid white;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
@@ -121,7 +121,7 @@ body {
 }
 
 .range-slider-thumb::-moz-range-thumb:hover {
-  background: var(--yallashop-navy-dark);
+  background: var(--ecommerce-navy-dark);
   transform: scale(1.1);
 }
 

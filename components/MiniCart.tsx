@@ -28,11 +28,11 @@ export default function MiniCart() {
       {/* Cart Sidebar */}
       <div className="fixed right-0 top-0 h-full w-full sm:w-96 bg-white shadow-2xl z-50 flex flex-col animate-slide-in">
         {/* Header */}
-        <div className="bg-yallashop-navy text-white p-4 flex items-center justify-between">
+        <div className="bg-ecommerce-navy text-white p-4 flex items-center justify-between">
           <h2 className="text-lg font-bold">Shopping Cart ({cartCount})</h2>
           <button
             onClick={() => setIsCartOpen(false)}
-            className="hover:text-yallashop-yellow"
+            className="hover:text-ecommerce-yellow"
           >
             <svg
               className="w-6 h-6"
@@ -71,7 +71,7 @@ export default function MiniCart() {
               <p className="text-sm mt-2">Add items to get started</p>
               <button
                 onClick={() => setIsCartOpen(false)}
-                className="mt-4 bg-yallashop-yellow text-yallashop-navy px-6 py-3 rounded-lg font-semibold hover:bg-yellow-500"
+                className="mt-4 bg-ecommerce-yellow text-ecommerce-navy px-6 py-3 rounded-lg font-semibold hover:bg-yellow-500"
               >
                 Continue Shopping
               </button>
@@ -94,12 +94,12 @@ export default function MiniCart() {
                     <Link
                       href={`/products/${item.slug}`}
                       onClick={() => setIsCartOpen(false)}
-                      className="text-sm font-medium hover:text-yallashop-yellow line-clamp-2"
+                      className="text-sm font-medium hover:text-ecommerce-yellow line-clamp-2"
                     >
                       {item.title}
                     </Link>
                     <p className="text-xs text-gray-500 mt-1">{item.brand}</p>
-                    <p className="text-lg font-bold text-yallashop-navy mt-1">
+                    <p className="text-lg font-bold text-ecommerce-navy mt-1">
                       EGP{" "}
                       {item.price.toLocaleString("en-US", {
                         minimumFractionDigits: 2,
@@ -162,7 +162,7 @@ export default function MiniCart() {
           <div className="border-t p-4 bg-gray-50">
             <div className="flex items-center justify-between mb-4">
               <span className="text-lg font-semibold">Subtotal:</span>
-              <span className="text-2xl font-bold text-yallashop-navy">
+              <span className="text-2xl font-bold text-ecommerce-navy">
                 EGP{" "}
                 {cartTotal.toLocaleString("en-US", {
                   minimumFractionDigits: 2,
@@ -170,12 +170,12 @@ export default function MiniCart() {
                 })}
               </span>
             </div>
-            <button className="w-full bg-yallashop-yellow text-yallashop-navy py-3 rounded-lg font-bold text-lg hover:bg-yellow-500 mb-2 border-2 border-yallashop-yellow">
+            <button className="w-full bg-ecommerce-yellow text-ecommerce-navy py-3 rounded-lg font-bold text-lg hover:bg-yellow-500 mb-2 border-2 border-ecommerce-yellow">
               Proceed to Checkout
             </button>
             <button
               onClick={() => setIsCartOpen(false)}
-              className="w-full bg-white border-2 border-yallashop-navy text-yallashop-navy py-3 rounded-lg font-bold text-lg hover:bg-gray-50"
+              className="w-full bg-white border-2 border-ecommerce-navy text-ecommerce-navy py-3 rounded-lg font-bold text-lg hover:bg-gray-50"
             >
               Continue Shopping
             </button>

@@ -86,13 +86,13 @@ export default function FilterSidebar({
       {/* Filter Sidebar */}
       <div className="fixed right-0 top-0 h-full w-full sm:w-96 bg-white shadow-2xl z-50 flex flex-col animate-slide-in">
         {/* Header */}
-        <div className="bg-yallashop-navy text-white p-4 flex items-center justify-between">
+        <div className="bg-ecommerce-navy text-white p-4 flex items-center justify-between">
           <div>
             <h2 className="text-white text-2xl font-bold text-gray-900">
               Filters:
             </h2>
           </div>
-          <button onClick={onClose} className="hover:text-yallashop-yellow">
+          <button onClick={onClose} className="hover:text-ecommerce-yellow">
             <svg
               className="w-6 h-6"
               fill="none"
@@ -124,8 +124,8 @@ export default function FilterSidebar({
                     onClick={() => onCategoryChange(cat)}
                     className={`px-2 py-1 rounded-full text-xs font-medium transition-all ${
                       selectedCategory === cat
-                        ? "bg-yallashop-yellow text-yallashop-navy border-2 border-yallashop-yellow"
-                        : "bg-white text-gray-700 border-2 border-gray-300 hover:border-yallashop-yellow hover:text-yallashop-navy"
+                        ? "bg-ecommerce-yellow text-ecommerce-navy border-2 border-ecommerce-yellow"
+                        : "bg-white text-gray-700 border-2 border-gray-300 hover:border-ecommerce-yellow hover:text-ecommerce-navy"
                     }`}
                   >
                     {cat}
@@ -153,7 +153,7 @@ export default function FilterSidebar({
                   <div className="absolute w-full h-2 bg-gray-200 rounded-lg top-2"></div>
                   {/* Track Active Range */}
                   <div
-                    className="absolute h-2 bg-yallashop-yellow rounded-lg top-2"
+                    className="absolute h-2 bg-ecommerce-yellow rounded-lg top-2"
                     style={{
                       left: `${(minPrice / MAX_PRICE) * 100}%`,
                       right: `${100 - (maxPrice / MAX_PRICE) * 100}%`,
@@ -211,7 +211,6 @@ export default function FilterSidebar({
                   { value: "featured", label: "Featured" },
                   { value: "price-low", label: "Price: Low to High" },
                   { value: "price-high", label: "Price: High to Low" },
-                  { value: "rating", label: "Highest Rated" },
                   { value: "name", label: "Name: A to Z" },
                 ].map((option) => (
                   <label
@@ -225,10 +224,10 @@ export default function FilterSidebar({
                         value={option.value}
                         checked={sortBy === option.value}
                         onChange={(e) => onSortChange(e.target.value)}
-                        className="w-5 h-5 cursor-pointer accent-yallashop-yellow"
+                        className="w-5 h-5 cursor-pointer accent-ecommerce-yellow"
                       />
                     </div>
-                    <span className="text-sm text-gray-700 group-hover:text-yallashop-navy">
+                    <span className="text-sm text-gray-700 group-hover:text-ecommerce-navy">
                       {option.label}
                     </span>
                   </label>
@@ -249,7 +248,7 @@ export default function FilterSidebar({
             </button>
             <button
               onClick={onApply}
-              className="flex-1 bg-yallashop-yellow text-yallashop-navy py-3 rounded-lg font-semibold hover:bg-yellow-500"
+              className="flex-1 bg-ecommerce-yellow text-ecommerce-navy py-3 rounded-lg font-semibold hover:bg-yellow-500"
             >
               Apply Filters
             </button>
