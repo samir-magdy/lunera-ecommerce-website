@@ -9,7 +9,6 @@ interface Product {
   title: string;
   price: number;
   image: string;
-  brand: string;
   inStock?: boolean;
 }
 
@@ -36,7 +35,6 @@ export default function AddToCartButton({
       title: product.title,
       price: product.price,
       image: product.image,
-      brand: product.brand,
     });
 
     setJustAdded(true);

@@ -2,11 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import AddToCartButton from "@/components/AddToCartButton";
-import {
-  getProductBySlug,
-  getProducts,
-  getProductSlugs,
-} from "@/sanity/lib/products";
+// import {
+//   getProductBySlug,
+//   getProducts,
+//   getProductSlugs,
+// } from "@/sanity/lib/products";
+import productsData from "@/data/products.json";
 
 interface ProductPageProps {
   params: Promise<{
@@ -16,14 +17,13 @@ interface ProductPageProps {
 
 // Generate static params for all products
 export async function generateStaticParams() {
-  const slugs = await getProductSlugs();
-  return slugs.map((slug) => ({ slug }));
+  return productsData.map((p) => ({ slug: p.slug }));
 }
 
 // Generate metadata for SEO
 export async function generateMetadata({ params }: ProductPageProps) {
   const { slug } = await params;
-  const product = await getProductBySlug(slug);
+  const product = productsData.find((p) => p.slug === slug);
 
   if (!product) {
     return {
@@ -39,14 +39,14 @@ export async function generateMetadata({ params }: ProductPageProps) {
 
 export default async function ProductPage({ params }: ProductPageProps) {
   const { slug } = await params;
-  const product = await getProductBySlug(slug);
+  const product = productsData.find((p) => p.slug === slug);
 
   if (!product) {
     notFound();
   }
 
   // Get related products from same category
-  const allProducts = await getProducts();
+  const allProducts = productsData;
   const relatedProducts = allProducts
     .filter((p) => p.category === product.category && p.id !== product.id)
     .slice(0, 4);
@@ -100,13 +100,10 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
             {/* Product Info */}
             <div className="flex flex-col">
-              {/* Brand & Category */}
-              <div className="flex items-center gap-4 mb-4">
+              {/* Category */}
+              <div className="mb-4">
                 <span className="bg-ecommerce-navy text-white px-3 py-1 rounded-full text-sm font-medium">
-                  {product.brand}
-                </span>
-                <span className="text-gray-600 text-sm">
-                  {product.category} → {product.subcategory}
+                  {product.category}
                 </span>
               </div>
 

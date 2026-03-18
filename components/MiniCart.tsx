@@ -98,7 +98,6 @@ export default function MiniCart() {
                     >
                       {item.title}
                     </Link>
-                    <p className="text-xs text-gray-500 mt-1">{item.brand}</p>
                     <p className="text-lg font-bold text-ecommerce-navy mt-1">
                       EGP{" "}
                       {item.price.toLocaleString("en-US", {

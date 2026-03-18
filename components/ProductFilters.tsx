@@ -12,11 +12,9 @@ interface Product {
   title: string;
   price: number;
   category: string;
-  subcategory: string;
   image: string;
   description: string;
   inStock: boolean;
-  brand: string;
 }
 
 interface ProductFiltersProps {
@@ -104,11 +102,6 @@ export default function ProductFilters({ products }: ProductFiltersProps) {
     return cats;
   }, [products]);
 
-  // Get unique brands
-  const brands = useMemo(() => {
-    return Array.from(new Set(products.map((p) => p.brand))).sort();
-  }, [products]);
-
   // Filter and sort products
   const filteredAndSortedProducts = useMemo(() => {
     let filtered = [...products];
@@ -120,9 +113,7 @@ export default function ProductFilters({ products }: ProductFiltersProps) {
         (p) =>
           p.title.toLowerCase().includes(query) ||
           p.description.toLowerCase().includes(query) ||
-          p.brand.toLowerCase().includes(query) ||
-          p.category.toLowerCase().includes(query) ||
-          p.subcategory.toLowerCase().includes(query)
+          p.category.toLowerCase().includes(query)
       );
     }
 

@@ -8,11 +8,9 @@ interface Product {
   title: string;
   price: number;
   category: string;
-  subcategory: string;
   image: string;
   description: string;
   inStock: boolean;
-  brand: string;
 }
 
 interface ProductCardProps {
@@ -42,13 +40,10 @@ export default function ProductCard({ product }: ProductCardProps) {
       </Link>
 
       <div className="p-4">
-        {/* Brand & Category */}
-        <div className="flex items-center justify-between mb-2">
-          <span className="text-xs text-gray-500 uppercase">
-            {product.brand}
-          </span>
+        {/* Category */}
+        <div className="mb-2">
           <span className="text-xs text-ecommerce-navy font-medium">
-            {product.subcategory}
+            {product.category}
           </span>
         </div>
 

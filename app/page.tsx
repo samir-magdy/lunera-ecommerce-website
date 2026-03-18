@@ -1,9 +1,10 @@
 import { Suspense } from "react";
 import ProductFilters from "@/components/ProductFilters";
-import { getProducts } from "@/sanity/lib/products";
+// import { getProducts } from "@/sanity/lib/products";
+import productsData from "@/data/products.json";
 
 export default async function HomePage() {
-  const products = await getProducts();
+  const products = productsData;
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Banner */}
