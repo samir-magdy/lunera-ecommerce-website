@@ -100,16 +100,16 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-noise opacity-[0.025] pointer-events-none" />
 
       {/* Mobile — full bleed background image */}
-      <div className="absolute inset-0 lg:hidden">
+      {/* <div className="absolute inset-0 lg:hidden">
         <Image
-          src={HERO_IMAGES[1].src}
-          alt={HERO_IMAGES[1].alt}
+          src={HERO_IMAGES[2].src}
+          alt={HERO_IMAGES[2].alt}
           fill
-          className="object-cover object-top"
+          className="object-cover"
           sizes="100vw"
           priority
         />
-      </div>
+      </div> */}
 
       {/* Mobile — cream gradient overlay (bottom → transparent) */}
       <div className="absolute inset-0 lg:hidden bg-gradient-to-t from-leil-cream via-leil-cream/85 to-transparent" />
@@ -119,7 +119,7 @@ export default function HeroSection() {
       <div className="hidden lg:block absolute bottom-0 left-1/4 w-[400px] h-[300px] rounded-full bg-leil-rose/5 blur-3xl pointer-events-none" />
 
       {/* ── Main content ── */}
-      <div className="relative z-10 flex-1 flex items-end lg:items-center px-6 sm:px-12 lg:px-20">
+      <div className="relative z-10 flex-1 flex items-end lg:items-center px-6 sm:px-12 lg:px-20 pb-4 md:pb-000">
         <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 xl:gap-20 pb-10 lg:py-0">
           {/* Left — Editorial text */}
           <div className="flex flex-col justify-center">
