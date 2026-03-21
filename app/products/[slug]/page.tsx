@@ -58,14 +58,14 @@ export default async function ProductPage({ params }: ProductPageProps) {
         <nav className="mb-6 text-sm">
           <ol className="flex items-center space-x-2 text-gray-600">
             <li>
-              <Link href="/" className="hover:text-ecommerce-yellow">
+              <Link href="/#collection" className="hover:text-ecommerce-yellow">
                 Home
               </Link>
             </li>
             <li>/</li>
             <li>
               <Link
-                href={`/?category=${encodeURIComponent(product.category)}`}
+                href={`/?category=${encodeURIComponent(product.category)}#collection`}
                 className="hover:text-ecommerce-yellow"
               >
                 {product.category}
@@ -78,7 +78,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
         {/* Product Detail */}
         <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-6 lg:p-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 md:gap-8 p-6 lg:p-8">
             {/* Product Image */}
             <div className="relative aspect-square bg-gray-100 rounded-lg overflow-hidden">
               <Image

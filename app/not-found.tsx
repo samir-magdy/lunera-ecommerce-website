@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-export default function ProductNotFound() {
+export default function NotFound() {
   return (
     <div className="min-h-screen bg-leil-cream flex items-center justify-center px-4">
       <div className="text-center">
@@ -8,10 +8,10 @@ export default function ProductNotFound() {
           404
         </p>
         <h1 className="font-display text-4xl font-light text-leil-dark mb-4">
-          Product Not Found
+          Page Not Found
         </h1>
         <p className="font-body text-sm text-leil-dark/50 mb-10 max-w-xs mx-auto leading-relaxed">
-          The piece you&apos;re looking for may have moved or is no longer available.
+          The page you&apos;re looking for may have moved or no longer exists.
         </p>
         <Link
           href="/#collection"

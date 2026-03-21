@@ -8,10 +8,10 @@ export default function FilterButton() {
   return (
     <button
       onClick={() => setIsFilterOpen(true)}
-      className="md:hidden flex items-center space-x-2 text-white hover:text-ecommerce-yellow"
+      className="md:hidden flex items-center gap-2 text-leil-cream hover:text-leil-rose transition-colors duration-200"
     >
       <svg
-        className="w-6 h-6"
+        className="w-7 h-8"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"

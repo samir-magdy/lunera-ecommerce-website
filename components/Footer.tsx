@@ -1,85 +1,82 @@
+"use client";
+
+import { useRouter } from "next/navigation";
+
 export default function Footer() {
+  const router = useRouter();
+
+  const handleCategoryClick = (e: React.MouseEvent<HTMLAnchorElement>, cat: string) => {
+    e.preventDefault();
+    router.push(`/?category=${cat}`);
+    setTimeout(() => {
+      document.getElementById("collection")?.scrollIntoView();
+    }, 50);
+  };
   return (
-    <footer className="bg-ecommerce-navy text-white mt-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* About */}
+    <footer className="bg-leil-dark text-leil-cream mt-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+
+          {/* Brand */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-ecommerce-yellow">
-              About E-Commerce
+            <h3 className="font-display text-2xl font-light tracking-[0.12em] text-leil-cream mb-4">
+              Leil
             </h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <a className="cursor-pointer hover:text-ecommerce-yellow">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a className="cursor-pointer hover:text-ecommerce-yellow">
-                  Contact Us
-                </a>
-              </li>
-              <li>
-                <a className="cursor-pointer hover:text-ecommerce-yellow">
-                  Careers
-                </a>
-              </li>
-              <li>
-                <a className="cursor-pointer hover:text-ecommerce-yellow">
-                  Press
-                </a>
-              </li>
+            <p className="font-body text-sm text-leil-cream/45 leading-relaxed max-w-xs">
+              Curated fashion for the modern Egyptian woman.
+            </p>
+          </div>
+
+          {/* Shop */}
+          <div>
+            <h4 className="font-body text-[0.65rem] tracking-[0.3em] uppercase text-leil-rose mb-4">
+              Shop
+            </h4>
+            <ul className="space-y-2.5 font-body text-sm">
+              {["Dresses", "Abayas", "Tops", "Bottoms", "Accessories", "Outerwear"].map(cat => (
+                <li key={cat}>
+                  <a
+                    href={`/?category=${cat}`}
+                    onClick={e => handleCategoryClick(e, cat)}
+                    className="text-leil-cream/50 hover:text-leil-rose transition-colors duration-200"
+                  >
+                    {cat}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Help */}
+          {/* Contact */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-ecommerce-yellow">
-              Customer Care
-            </h3>
-            <ul className="space-y-2 text-sm">
+            <h4 className="font-body text-[0.65rem] tracking-[0.3em] uppercase text-leil-rose mb-4">
+              Contact Us
+            </h4>
+            <ul className="space-y-3 font-body text-sm">
               <li>
-                <a className="cursor-pointer hover:text-ecommerce-yellow">
-                  Help Center
+                <a
+                  href="https://wa.me/201000000000"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2.5 text-leil-cream/50 hover:text-leil-rose transition-colors duration-200"
+                >
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 shrink-0">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.858L0 24l6.335-1.51A11.933 11.933 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.793 9.793 0 01-5.017-1.382l-.36-.214-3.732.889.936-3.617-.235-.372A9.755 9.755 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/>
+                  </svg>
+                  WhatsApp
                 </a>
               </li>
               <li>
-                <a className="cursor-pointer hover:text-ecommerce-yellow">
-                  Track Order
-                </a>
-              </li>
-              <li>
-                <a className="cursor-pointer hover:text-ecommerce-yellow">
-                  Returns
-                </a>
-              </li>
-              <li>
-                <a className="cursor-pointer hover:text-ecommerce-yellow">
-                  Shipping Info
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Payment */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4 text-ecommerce-yellow">
-              Payment Methods
-            </h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <a className="cursor-pointer hover:text-ecommerce-yellow">
-                  Credit/Debit Card
-                </a>
-              </li>
-              <li>
-                <a className="cursor-pointer hover:text-ecommerce-yellow">
-                  Cash on Delivery
-                </a>
-              </li>
-              <li>
-                <a className="cursor-pointer hover:text-ecommerce-yellow">
-                  Installments
+                <a
+                  href="mailto:hello@leil.com"
+                  className="flex items-center gap-2.5 text-leil-cream/50 hover:text-leil-rose transition-colors duration-200"
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="w-4 h-4 shrink-0">
+                    <rect x="2" y="4" width="20" height="16" rx="2"/>
+                    <path d="m2 7 10 7 10-7"/>
+                  </svg>
+                  hello@leil.com
                 </a>
               </li>
             </ul>
@@ -87,43 +84,62 @@ export default function Footer() {
 
           {/* Social */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-ecommerce-yellow">
+            <h4 className="font-body text-[0.65rem] tracking-[0.3em] uppercase text-leil-rose mb-4">
               Follow Us
-            </h3>
-            <div className="flex space-x-4">
-              <a className="cursor-pointer hover:text-ecommerce-yellow">
-                <svg
-                  className="w-6 h-6"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+            </h4>
+            <div className="flex gap-4">
+              <a
+                href="https://facebook.com/leil"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="text-leil-cream/50 hover:text-leil-rose transition-colors duration-200"
+              >
+                <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+                  <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073c0 6.027 4.388 11.024 10.125 11.927v-8.437H7.078v-3.49h3.047V9.413c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.234 2.686.234v2.953h-1.514c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.097 24 18.1 24 12.073z"/>
                 </svg>
               </a>
-              <a className="cursor-pointer hover:text-ecommerce-yellow">
-                <svg
-                  className="w-6 h-6"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              <a
+                href="https://instagram.com/leil"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="text-leil-cream/50 hover:text-leil-rose transition-colors duration-200"
+              >
+                <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
                 </svg>
               </a>
-              <a className="cursor-pointer hover:text-ecommerce-yellow">
-                <svg
-                  className="w-6 h-6"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z" />
+              <a
+                href="https://tiktok.com/@leil"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="TikTok"
+                className="text-leil-cream/50 hover:text-leil-rose transition-colors duration-200"
+              >
+                <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+                  <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.73a8.17 8.17 0 004.78 1.52V6.8a4.85 4.85 0 01-1.01-.11z"/>
                 </svg>
               </a>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-ecommerce-navy-dark mt-8 pt-8 text-sm text-center text-gray-400">
-          <p>&copy; 2026 Samir Magdy. All rights reserved.</p>
+        <div className="border-t border-leil-cream/8 mt-12 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="font-body text-xs text-leil-cream/25 tracking-wide">
+            © {new Date().getFullYear()} Leil. All rights reserved.
+          </p>
+          <p className="font-body text-xs text-leil-cream/20 tracking-wide">
+            Showcase project by{" "}
+            <a
+              href="https://samirmagdy.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-leil-rose transition-colors duration-200"
+            >
+              SM Web Studio
+            </a>
+          </p>
         </div>
       </div>
     </footer>

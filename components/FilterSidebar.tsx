@@ -1,258 +1,181 @@
 "use client";
 
-import { useState, useEffect } from "react";
+const MAX_PRICE = 5000;
+
+const PRICE_PRESETS = [
+  { value: "all",       label: "All Prices"      },
+  { value: "under-500", label: "Under EGP 500"   },
+  { value: "500-1500",  label: "EGP 500 – 1,500" },
+  { value: "1500-3000", label: "EGP 1,500 – 3,000"},
+  { value: "over-3000", label: "Over EGP 3,000"  },
+];
 
 interface FilterSidebarProps {
-  isOpen: boolean;
-  onClose: () => void;
+  isOpen:           boolean;
+  onClose:          () => void;
+  categories:       string[];
   selectedCategory: string;
-  sortBy: string;
-  priceRange: string;
-  categories: string[];
-  onCategoryChange: (category: string) => void;
-  onSortChange: (sort: string) => void;
-  onPriceRangeChange: (range: string) => void;
-  onApply: () => void;
-  onReset: () => void;
+  onCategoryChange: (cat: string) => void;
+  sortBy:           string;
+  onSortChange:     (sort: string) => void;
+  priceRange:       string;
+  onPriceChange:    (price: string) => void;
+  minPrice:         number;
+  maxPrice:         number;
+  onMinPriceChange: (val: number) => void;
+  onMaxPriceChange: (val: number) => void;
+  onReset:          () => void;
 }
 
 export default function FilterSidebar({
-  isOpen,
-  onClose,
-  selectedCategory,
-  sortBy,
-  priceRange,
-  categories,
-  onCategoryChange,
-  onSortChange,
-  onPriceRangeChange,
-  onApply,
+  isOpen, onClose,
+  categories, selectedCategory, onCategoryChange,
+  sortBy, onSortChange,
+  priceRange, onPriceChange,
+  minPrice, maxPrice,
+  onMinPriceChange, onMaxPriceChange,
   onReset,
 }: FilterSidebarProps) {
-  const [minPrice, setMinPrice] = useState(0);
-  const [maxPrice, setMaxPrice] = useState(50000);
-  const MAX_PRICE = 50000;
-
-  // Parse priceRange prop to set initial slider values
-  useEffect(() => {
-    if (priceRange === "all") {
-      setMinPrice(0);
-      setMaxPrice(MAX_PRICE);
-    } else if (priceRange.startsWith("custom-")) {
-      // Parse custom format: "custom-min-max"
-      const parts = priceRange.split("-");
-      const min = parseInt(parts[1]);
-      const max = parseInt(parts[2]);
-      setMinPrice(min);
-      setMaxPrice(max);
-    } else if (priceRange === "under-1000") {
-      setMinPrice(0);
-      setMaxPrice(1000);
-    } else if (priceRange === "1000-10000") {
-      setMinPrice(1000);
-      setMaxPrice(10000);
-    } else if (priceRange === "10000-50000") {
-      setMinPrice(10000);
-      setMaxPrice(50000);
-    } else if (priceRange === "over-50000") {
-      setMinPrice(50000);
-      setMaxPrice(MAX_PRICE);
-    }
-  }, [priceRange]);
-
-  const handlePriceChange = (min: number, max: number) => {
-    setMinPrice(min);
-    setMaxPrice(max);
-
-    // Pass actual min/max values in a custom format
-    if (min === 0 && max === MAX_PRICE) {
-      onPriceRangeChange("all");
-    } else {
-      // Format: "custom-min-max" to pass actual values
-      onPriceRangeChange(`custom-${min}-${max}`);
-    }
-  };
-
   if (!isOpen) return null;
 
   return (
     <>
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-black bg-opacity-50 z-40"
+        className="fixed inset-0 bg-leil-dark/40 backdrop-blur-sm z-40"
         onClick={onClose}
       />
 
-      {/* Filter Sidebar */}
-      <div className="fixed right-0 top-0 h-full w-full sm:w-96 bg-white shadow-2xl z-50 flex flex-col animate-slide-in">
+      {/* Panel */}
+      <div className="fixed left-0 top-0 h-full w-80 bg-leil-cream shadow-2xl z-50 flex flex-col animate-slide-in"
+        style={{ animation: "slideInLeft 0.3s ease-out" }}
+      >
         {/* Header */}
-        <div className="bg-ecommerce-navy text-white p-4 flex items-center justify-between">
-          <div>
-            <h2 className="text-white text-2xl font-bold text-gray-900">
-              Filters:
-            </h2>
-          </div>
-          <button onClick={onClose} className="hover:text-ecommerce-yellow">
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
-        </div>
-
-        {/* Filter Controls - Scrollable */}
-        <div className="flex-1 overflow-y-auto px-6 py-6">
-          <div className="space-y-8">
-            {/* Category Filter - Pills */}
-            <div>
-              <h3 className="text-sm font-semibold text-gray-700 mb-3">
-                CATEGORY
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {categories.map((cat) => (
-                  <button
-                    key={cat}
-                    onClick={() => onCategoryChange(cat)}
-                    className={`px-2 py-1 rounded-full text-xs font-medium transition-all ${
-                      selectedCategory === cat
-                        ? "bg-ecommerce-yellow text-ecommerce-navy border-2 border-ecommerce-yellow"
-                        : "bg-white text-gray-700 border-2 border-gray-300 hover:border-ecommerce-yellow hover:text-ecommerce-navy"
-                    }`}
-                  >
-                    {cat}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Price Range - Slider */}
-            <div>
-              <h3 className="text-sm font-semibold text-gray-700 mb-3">
-                PRICE RANGE
-              </h3>
-              <div className="space-y-4">
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-600">
-                    EGP {minPrice.toLocaleString()}
-                  </span>
-                  <span className="text-sm text-gray-600">
-                    EGP {maxPrice.toLocaleString()}
-                  </span>
-                </div>
-                <div className="relative pt-2 pb-6">
-                  {/* Track Background */}
-                  <div className="absolute w-full h-2 bg-gray-200 rounded-lg top-2"></div>
-                  {/* Track Active Range */}
-                  <div
-                    className="absolute h-2 bg-ecommerce-yellow rounded-lg top-2"
-                    style={{
-                      left: `${(minPrice / MAX_PRICE) * 100}%`,
-                      right: `${100 - (maxPrice / MAX_PRICE) * 100}%`,
-                    }}
-                  ></div>
-                  {/* Max Range Input */}
-                  <input
-                    type="range"
-                    min="0"
-                    max={MAX_PRICE}
-                    step="100"
-                    value={maxPrice}
-                    onChange={(e) => {
-                      const value = Math.max(
-                        Number(e.target.value),
-                        minPrice + 100
-                      );
-                      handlePriceChange(minPrice, value);
-                    }}
-                    className="range-slider-thumb absolute w-full h-2 bg-transparent appearance-none pointer-events-none z-30"
-                    style={{
-                      zIndex: 30,
-                    }}
-                  />
-                  {/* Min Range Input */}
-                  <input
-                    type="range"
-                    min="0"
-                    max={MAX_PRICE}
-                    step="100"
-                    value={minPrice}
-                    onChange={(e) => {
-                      const value = Math.min(
-                        Number(e.target.value),
-                        maxPrice - 100
-                      );
-                      handlePriceChange(value, maxPrice);
-                    }}
-                    className="range-slider-thumb absolute w-full h-2 bg-transparent appearance-none pointer-events-none z-40"
-                    style={{
-                      zIndex: 40,
-                    }}
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Sort Options - Radio Buttons */}
-            <div>
-              <h3 className="text-sm font-semibold text-gray-700 mb-3">
-                SORT BY
-              </h3>
-              <div className="space-y-2">
-                {[
-                  { value: "featured", label: "Featured" },
-                  { value: "price-low", label: "Price: Low to High" },
-                  { value: "price-high", label: "Price: High to Low" },
-                  { value: "name", label: "Name: A to Z" },
-                ].map((option) => (
-                  <label
-                    key={option.value}
-                    className="flex items-center gap-3 cursor-pointer group"
-                  >
-                    <div className="relative">
-                      <input
-                        type="radio"
-                        name="sort"
-                        value={option.value}
-                        checked={sortBy === option.value}
-                        onChange={(e) => onSortChange(e.target.value)}
-                        className="w-5 h-5 cursor-pointer accent-ecommerce-yellow"
-                      />
-                    </div>
-                    <span className="text-sm text-gray-700 group-hover:text-ecommerce-navy">
-                      {option.label}
-                    </span>
-                  </label>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Footer - Action Buttons */}
-        <div className="border-t p-4 bg-gray-50">
-          <div className="flex gap-3">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-leil-dark/8">
+          <h2 className="font-body text-xs tracking-[0.3em] uppercase text-leil-dark">Filter & Sort</h2>
+          <div className="flex items-center gap-4">
             <button
               onClick={onReset}
-              className="flex-1 bg-white border-2 border-gray-300 text-gray-700 py-3 rounded-lg font-semibold hover:bg-gray-50"
+              className="font-body text-[0.65rem] tracking-[0.15em] uppercase text-leil-rose hover:text-leil-rose-dark transition-colors"
             >
               Reset
             </button>
-            <button
-              onClick={onApply}
-              className="flex-1 bg-ecommerce-yellow text-ecommerce-navy py-3 rounded-lg font-semibold hover:bg-yellow-500"
-            >
-              Apply Filters
+            <button onClick={onClose} className="text-leil-dark/40 hover:text-leil-dark transition-colors">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
+              </svg>
             </button>
           </div>
+        </div>
+
+        {/* Scrollable body */}
+        <div className="flex-1 overflow-y-auto px-6 py-6 space-y-8">
+
+          {/* Category */}
+          <div>
+            <h3 className="font-body text-[0.65rem] tracking-[0.3em] uppercase text-leil-dark/40 mb-3">Category</h3>
+            <div className="flex flex-wrap gap-2">
+              {["All", ...categories].map(cat => (
+                <button
+                  key={cat}
+                  onClick={() => onCategoryChange(cat)}
+                  className={`px-3 py-1.5 font-body text-xs tracking-wide transition-colors duration-200 ${
+                    selectedCategory === cat
+                      ? "bg-leil-dark text-leil-cream"
+                      : "bg-leil-cream-dark text-leil-dark hover:bg-leil-blush"
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Price Range */}
+          <div>
+            <h3 className="font-body text-[0.65rem] tracking-[0.3em] uppercase text-leil-dark/40 mb-3">Price Range</h3>
+
+            <div className="space-y-2 mb-5">
+              {PRICE_PRESETS.map(preset => (
+                <button
+                  key={preset.value}
+                  onClick={() => onPriceChange(preset.value)}
+                  className={`w-full text-left px-3 py-2 font-body text-sm transition-colors duration-200 ${
+                    priceRange === preset.value
+                      ? "bg-leil-rose text-leil-cream"
+                      : "text-leil-dark/70 hover:text-leil-dark hover:bg-leil-blush/40"
+                  }`}
+                >
+                  {preset.label}
+                </button>
+              ))}
+            </div>
+
+            {/* Custom dual-thumb slider */}
+            <div className="pt-2">
+              <div className="flex justify-between font-body text-xs text-leil-dark/50 mb-3">
+                <span>EGP {minPrice.toLocaleString()}</span>
+                <span>EGP {maxPrice.toLocaleString()}</span>
+              </div>
+              <div className="relative pt-2 pb-6">
+                <div className="absolute w-full h-1 bg-leil-blush rounded-full top-2" />
+                <div
+                  className="absolute h-1 bg-leil-rose rounded-full top-2"
+                  style={{
+                    left:  `${(minPrice / MAX_PRICE) * 100}%`,
+                    right: `${100 - (maxPrice / MAX_PRICE) * 100}%`,
+                  }}
+                />
+                <input
+                  type="range" min="0" max={MAX_PRICE} step="100"
+                  value={maxPrice}
+                  onChange={e => onMaxPriceChange(Math.max(Number(e.target.value), minPrice + 100))}
+                  className="absolute w-full top-0 range-slider-thumb appearance-none bg-transparent"
+                />
+                <input
+                  type="range" min="0" max={MAX_PRICE} step="100"
+                  value={minPrice}
+                  onChange={e => onMinPriceChange(Math.min(Number(e.target.value), maxPrice - 100))}
+                  className="absolute w-full top-0 range-slider-thumb appearance-none bg-transparent"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Sort */}
+          <div>
+            <h3 className="font-body text-[0.65rem] tracking-[0.3em] uppercase text-leil-dark/40 mb-3">Sort By</h3>
+            <div className="space-y-2">
+              {[
+                { value: "featured",   label: "Featured"           },
+                { value: "price-low",  label: "Price: Low to High" },
+                { value: "price-high", label: "Price: High to Low" },
+                { value: "name",       label: "Name: A – Z"        },
+              ].map(opt => (
+                <button
+                  key={opt.value}
+                  onClick={() => onSortChange(opt.value)}
+                  className={`w-full text-left px-3 py-2 font-body text-sm transition-colors duration-200 ${
+                    sortBy === opt.value
+                      ? "bg-leil-rose text-leil-cream"
+                      : "text-leil-dark/70 hover:text-leil-dark hover:bg-leil-blush/40"
+                  }`}
+                >
+                  {opt.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Apply */}
+        <div className="px-6 py-4 border-t border-leil-dark/8">
+          <button
+            onClick={onClose}
+            className="w-full bg-leil-dark text-leil-cream font-body text-xs tracking-[0.15em] uppercase py-4 hover:bg-leil-rose transition-colors duration-200"
+          >
+            Apply Filters
+          </button>
         </div>
       </div>
     </>

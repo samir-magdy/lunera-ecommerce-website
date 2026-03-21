@@ -1,110 +1,38 @@
 "use client";
 
-import Link from "next/link";
-import { useState } from "react";
-import { useRouter, usePathname } from "next/navigation";
-import CartButton from "./CartButton";
-import FilterButton from "./FilterButton";
-import MiniCart from "./MiniCart";
+import { usePathname } from "next/navigation";
+import Link            from "next/link";
+import CartButton      from "./CartButton";
+import FilterButton    from "./FilterButton";
+import MiniCart        from "./MiniCart";
 
 export default function Navbar() {
-  const [searchQuery, setSearchQuery] = useState("");
-  const router = useRouter();
-  const pathname = usePathname();
-
-  // Hide filter button on product detail pages
-  const isProductPage = pathname?.startsWith("/products/");
-
-  // Handler for search submission
-  const handleSearch = (e?: React.FormEvent) => {
-    if (e) e.preventDefault();
-
-    // If search query is empty, reset to initial state (homepage with all products)
-    if (!searchQuery.trim()) {
-      router.push("/");
-      return;
-    }
-
-    // Navigate to homepage with search query parameter
-    router.push(`/?search=${encodeURIComponent(searchQuery.trim())}`);
-  };
-
-  // Handler for keyboard navigation
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
-      handleSearch();
-    }
-  };
+  const pathname      = usePathname();
+  const isProductPage = pathname.startsWith("/products/");
 
   return (
     <>
-      <nav className="bg-ecommerce-navy sticky top-0 z-40 shadow-md">
+      <nav className="bg-leil-dark text-leil-cream sticky top-0 z-30 shadow-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-between h-16 gap-6">
+
             {/* Logo */}
-            <Link href="/" className="flex items-center space-x-2">
-              <div className="text-3xl font-bold text-ecommerce-yellow">
-                E-Commerce
-              </div>
-            </Link>
+            <a
+              href="/"
+              className="font-display text-2xl font-light tracking-[0.12em] text-leil-cream hover:text-leil-rose transition-colors duration-200 flex-shrink-0"
+            >
+              Leil
+            </a>
 
-            {/* Search Bar - Centered */}
-            <div className="hidden md:flex flex-1 max-w-2xl mx-8">
-              <div className="w-full relative">
-                <input
-                  type="text"
-                  placeholder="What are you looking for?"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  onKeyDown={handleKeyDown}
-                  className="w-full px-4 py-2 rounded-lg border-2 border-transparent focus:border-ecommerce-yellow focus:outline-none"
-                />
-                <button
-                  onClick={handleSearch}
-                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-ecommerce-yellow text-ecommerce-navy px-4 py-1 rounded-md font-semibold hover:bg-yellow-500"
-                >
-                  Search
-                </button>
-              </div>
-            </div>
-
-            {/* Right Side - Cart & User */}
-            <div className="flex items-center space-x-6">
-             
-                  
-             
-
-              {/* Filter Button (Mobile Only) - Hide on product pages */}
+            {/* Right controls */}
+            <div className="flex items-center gap-5">
               {!isProductPage && <FilterButton />}
-
-              {/* Cart Button */}
               <CartButton />
-            </div>
-          </div>
-
-          {/* Mobile Search */}
-          <div className="md:hidden pb-3">
-            <div className="w-full relative">
-              <input
-                type="text"
-                placeholder="What are you looking for?"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                onKeyDown={handleKeyDown}
-                className="w-full px-4 py-2 rounded-lg border-2 border-transparent focus:border-ecommerce-yellow focus:outline-none text-sm"
-              />
-              <button
-                onClick={handleSearch}
-                className="absolute right-2 top-1/2 -translate-y-1/2 bg-ecommerce-yellow text-ecommerce-navy px-3 py-1 rounded-md font-semibold text-sm hover:bg-ecommerce-yellow-light"
-              >
-                Search
-              </button>
             </div>
           </div>
         </div>
       </nav>
 
-      {/* Mini Cart Sidebar */}
       <MiniCart />
     </>
   );
