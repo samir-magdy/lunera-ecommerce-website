@@ -70,7 +70,7 @@ export default function HeroSection() {
     // Scroll after client-side navigation settles (avoids full-page-reload timing race)
     setTimeout(() => {
       document.getElementById("collection")?.scrollIntoView();
-    }, 250);
+    }, 100);
   };
 
   const handleShopCTA = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -79,7 +79,7 @@ export default function HeroSection() {
     // Scroll after client-side navigation settles (avoids full-page-reload timing race)
     setTimeout(() => {
       document.getElementById("collection")?.scrollIntoView();
-    }, 250);
+    }, 100);
   };
 
   useEffect(() => {

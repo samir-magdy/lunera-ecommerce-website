@@ -7,10 +7,10 @@ export default function Footer() {
 
   const handleCategoryClick = (e: React.MouseEvent<HTMLAnchorElement>, cat: string) => {
     e.preventDefault();
-    router.push(`/?category=${cat}`);
+    router.push(`/?category=${cat}`, { scroll: false });
     setTimeout(() => {
       document.getElementById("collection")?.scrollIntoView();
-    }, 200);
+    }, 100);
   };
   return (
     <footer className="bg-leil-dark text-leil-cream mt-20">

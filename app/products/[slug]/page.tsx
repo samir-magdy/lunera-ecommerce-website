@@ -26,13 +26,11 @@ export async function generateMetadata({ params }: ProductPageProps) {
   const product = productsData.find((p) => p.slug === slug);
 
   if (!product) {
-    return {
-      title: "Product Not Found",
-    };
+    return { title: "Product Not Found" };
   }
 
   return {
-    title: `${product.title} | E-Commerce`,
+    title: `${product.title} | Leil`,
     description: product.description,
   };
 }
@@ -52,13 +50,14 @@ export default async function ProductPage({ params }: ProductPageProps) {
     .slice(0, 4);
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-leil-cream py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
         {/* Breadcrumb */}
-        <nav className="mb-6 text-sm">
-          <ol className="flex items-center space-x-2 text-gray-600">
+        <nav className="mb-8">
+          <ol className="flex items-center gap-2 font-body text-[0.65rem] tracking-[0.2em] uppercase text-leil-dark/40">
             <li>
-              <Link href="/#collection" className="hover:text-ecommerce-yellow">
+              <Link href="/#collection" className="hover:text-leil-rose transition-colors duration-200">
                 Home
               </Link>
             </li>
@@ -66,21 +65,22 @@ export default async function ProductPage({ params }: ProductPageProps) {
             <li>
               <Link
                 href={`/?category=${encodeURIComponent(product.category)}#collection`}
-                className="hover:text-ecommerce-yellow"
+                className="hover:text-leil-rose transition-colors duration-200"
               >
                 {product.category}
               </Link>
             </li>
             <li>/</li>
-            <li className="text-ecommerce-navy font-medium">{product.title}</li>
+            <li className="text-leil-dark/70">{product.title}</li>
           </ol>
         </nav>
 
         {/* Product Detail */}
-        <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-2 md:gap-8 p-6 lg:p-8">
+        <div className="bg-leil-cream-dark overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-2 md:gap-8 p-6 lg:p-10">
+
             {/* Product Image */}
-            <div className="relative aspect-square bg-gray-100 rounded-lg overflow-hidden">
+            <div className="relative aspect-square bg-leil-blush/30 overflow-hidden">
               <Image
                 src={product.image}
                 alt={product.title}
@@ -89,9 +89,13 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 priority
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
+              {/* Category pill */}
+              <span className="absolute top-4 left-4 bg-leil-cream/90 backdrop-blur-sm font-body text-[0.6rem] tracking-[0.2em] uppercase text-leil-dark px-2.5 py-1">
+                {product.category}
+              </span>
               {!product.inStock && (
-                <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-                  <span className="bg-red-500 text-white px-6 py-3 rounded-lg font-bold text-lg">
+                <div className="absolute inset-0 bg-leil-dark/50 flex items-center justify-center">
+                  <span className="font-body text-xs tracking-[0.2em] uppercase text-leil-cream bg-leil-dark/80 px-6 py-3">
                     Out of Stock
                   </span>
                 </div>
@@ -99,39 +103,33 @@ export default async function ProductPage({ params }: ProductPageProps) {
             </div>
 
             {/* Product Info */}
-            <div className="flex flex-col">
-              {/* Category */}
-              <div className="mb-4">
-                <span className="bg-ecommerce-navy text-white px-3 py-1 rounded-full text-sm font-medium">
-                  {product.category}
-                </span>
-              </div>
+            <div className="flex flex-col pt-6 lg:pt-0">
 
               {/* Title */}
-              <h1 className="text-3xl font-bold text-gray-900 mb-4">
+              <h1 className="font-display text-4xl lg:text-5xl font-light text-leil-dark mb-4 leading-tight">
                 {product.title}
               </h1>
 
               {/* Price */}
-              <div className="mb-6">
-                <div className="flex items-baseline gap-2">
-                  <span className="text-4xl font-bold text-ecommerce-navy">
-                    EGP{" "}
-                    {product.price.toLocaleString("en-US", {
-                      minimumFractionDigits: 2,
-                      maximumFractionDigits: 2,
-                    })}
-                  </span>
-                </div>
-                <p className="text-sm text-gray-600 mt-1">Inclusive of VAT</p>
+              <div className="mb-6 border-b border-leil-dark/10 pb-6">
+                <span className="font-body text-2xl font-medium text-leil-dark">
+                  EGP{" "}
+                  {product.price.toLocaleString("en-US", {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  })}
+                </span>
+                <p className="font-body text-xs tracking-widest uppercase text-leil-dark/40 mt-1">
+                  Inclusive of VAT
+                </p>
               </div>
 
               {/* Description */}
               <div className="mb-8">
-                <h2 className="text-xl text-gray-900 font-semibold mb-3">
-                  About this item
+                <h2 className="font-display text-xl font-light text-leil-dark mb-3">
+                  About this piece
                 </h2>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="font-body text-sm leading-relaxed text-leil-dark/70">
                   {product.description}
                 </p>
               </div>
@@ -139,116 +137,42 @@ export default async function ProductPage({ params }: ProductPageProps) {
               {/* Stock Status */}
               <div className="mb-6">
                 {product.inStock ? (
-                  <div className="flex items-center gap-2 text-green-600">
-                    <svg
-                      className="w-5 h-5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 13l4 4L19 7"
-                      />
+                  <div className="flex items-center gap-2">
+                    <svg className="w-4 h-4 text-leil-rose" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span className="font-medium">
-                      In Stock - Ready to Ship
+                    <span className="font-body text-xs tracking-[0.15em] uppercase text-leil-dark/60">
+                      In Stock — Ready to Ship
                     </span>
                   </div>
                 ) : (
-                  <div className="flex items-center gap-2 text-red-600">
-                    <svg
-                      className="w-5 h-5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M6 18L18 6M6 6l12 12"
-                      />
+                  <div className="flex items-center gap-2">
+                    <svg className="w-4 h-4 text-leil-dark/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
                     </svg>
-                    <span className="font-medium">Currently Out of Stock</span>
+                    <span className="font-body text-xs tracking-[0.15em] uppercase text-leil-dark/40">
+                      Currently Out of Stock
+                    </span>
                   </div>
                 )}
               </div>
 
-              {/* Add to Cart Button */}
-              <div className="mb-6">
+              {/* Add to Cart */}
+              <div className="mb-8">
                 <AddToCartButton product={product} variant="large" />
               </div>
 
               {/* Features */}
-              <div className="border-t pt-6">
-                <div className="grid grid-cols-2 gap-4 text-sm">
-                  <div className="flex items-center gap-2 text-gray-700">
-                    <svg
-                      className="w-5 h-5 text-ecommerce-yellow"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                    <span>Free Delivery</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-gray-700">
-                    <svg
-                      className="w-5 h-5 text-ecommerce-yellow"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                    <span>Easy Returns</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-gray-700">
-                    <svg
-                      className="w-5 h-5 text-ecommerce-yellow"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                    <span>Secure Payment</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-gray-700">
-                    <svg
-                      className="w-5 h-5 text-ecommerce-yellow"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                    <span>Warranty Included</span>
-                  </div>
+              <div className="border-t border-leil-dark/10 pt-6">
+                <div className="grid grid-cols-2 gap-3">
+                  {["Free Delivery", "Easy Returns", "Secure Payment", "Warranty Included"].map((feature) => (
+                    <div key={feature} className="flex items-center gap-2 text-leil-dark/60">
+                      <svg className="w-3.5 h-3.5 text-leil-rose shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="font-body text-xs tracking-[0.1em] uppercase">{feature}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -257,33 +181,33 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
         {/* Related Products */}
         {relatedProducts.length > 0 && (
-          <div className="mt-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">
+          <div className="mt-16">
+            <h2 className="font-display text-3xl font-light text-leil-dark mb-8">
               You Might Also Like
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {relatedProducts.map((relatedProduct) => (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {relatedProducts.map((rel) => (
                 <Link
-                  key={relatedProduct.id}
-                  href={`/products/${relatedProduct.slug}`}
-                  className="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow overflow-hidden group"
+                  key={rel.id}
+                  href={`/products/${rel.slug}`}
+                  className="group bg-leil-cream-dark overflow-hidden hover:shadow-lg transition-shadow duration-400"
                 >
-                  <div className="relative h-48 bg-gray-100">
+                  <div className="relative h-56 bg-leil-blush/30 overflow-hidden">
                     <Image
-                      src={relatedProduct.image}
-                      alt={relatedProduct.title}
+                      src={rel.image}
+                      alt={rel.title}
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     />
                   </div>
-                  <div className="p-4">
-                    <h3 className="text-sm font-medium text-gray-800 line-clamp-2 mb-2">
-                      {relatedProduct.title}
+                  <div className="p-4 border-t border-leil-dark/6">
+                    <h3 className="font-display text-lg font-light text-leil-dark line-clamp-1 mb-1 group-hover:text-leil-rose transition-colors duration-200">
+                      {rel.title}
                     </h3>
-                    <p className="text-lg font-bold text-ecommerce-navy">
+                    <p className="font-body text-sm font-medium text-leil-dark">
                       EGP{" "}
-                      {relatedProduct.price.toLocaleString("en-US", {
+                      {rel.price.toLocaleString("en-US", {
                         minimumFractionDigits: 2,
                         maximumFractionDigits: 2,
                       })}
