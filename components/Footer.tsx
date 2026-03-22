@@ -10,7 +10,7 @@ export default function Footer() {
     router.push(`/?category=${cat}`);
     setTimeout(() => {
       document.getElementById("collection")?.scrollIntoView();
-    }, 50);
+    }, 200);
   };
   return (
     <footer className="bg-leil-dark text-leil-cream mt-20">

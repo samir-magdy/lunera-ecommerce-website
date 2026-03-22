@@ -8,8 +8,7 @@ import MiniCart        from "./MiniCart";
 
 export default function Navbar() {
   const pathname      = usePathname();
-  const isProductPage = pathname.startsWith("/products/");
-
+  const isHomePage = pathname === "/";
   return (
     <>
       <nav className="bg-leil-dark text-leil-cream sticky top-0 z-30 shadow-md">
@@ -17,16 +16,16 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-16 gap-6">
 
             {/* Logo */}
-            <a
+            <Link
               href="/"
               className="font-display text-2xl font-light tracking-[0.12em] text-leil-cream hover:text-leil-rose transition-colors duration-200 flex-shrink-0"
             >
               Leil
-            </a>
+            </Link>
 
             {/* Right controls */}
             <div className="flex items-center gap-5">
-              {!isProductPage && <FilterButton />}
+              {isHomePage && <FilterButton />}
               <CartButton />
             </div>
           </div>

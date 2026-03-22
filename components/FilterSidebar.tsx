@@ -1,5 +1,8 @@
 "use client";
 
+import { useState, useEffect } from "react";
+import { useSwipeToDismiss } from "@/hooks/useSwipeToDismiss";
+
 const MAX_PRICE = 5000;
 
 const PRICE_PRESETS = [
@@ -36,19 +39,53 @@ export default function FilterSidebar({
   onMinPriceChange, onMaxPriceChange,
   onReset,
 }: FilterSidebarProps) {
-  if (!isOpen) return null;
+  const [isClosing, setIsClosing] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [isOpen]);
+
+  const handleClose = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setIsClosing(false);
+      onClose();
+    }, 280);
+  };
+
+  const { offset, swipeOut, handlers } = useSwipeToDismiss({
+    direction: "left",
+    onClose,
+  });
+
+  if (!isOpen && !isClosing && !swipeOut) return null;
 
   return (
     <>
       {/* Backdrop */}
       <div
         className="fixed inset-0 bg-leil-dark/40 backdrop-blur-sm z-40"
-        onClick={onClose}
+        onClick={handleClose}
       />
 
       {/* Panel */}
-      <div className="fixed left-0 top-0 h-full w-80 bg-leil-cream shadow-2xl z-50 flex flex-col animate-slide-in"
-        style={{ animation: "slideInLeft 0.3s ease-out" }}
+      <div
+        {...handlers}
+        className={`fixed left-0 top-0 h-full w-80 bg-leil-cream shadow-2xl z-50 flex flex-col${isClosing && !swipeOut ? " animate-slide-out-left" : ""}`}
+        style={{
+          ...(isClosing || swipeOut ? {} : { animation: "slideInLeft 0.3s ease-out" }),
+          transform: swipeOut
+            ? "translateX(-100%)"
+            : offset
+              ? `translateX(${offset}px)`
+              : undefined,
+          transition: swipeOut
+            ? "transform 0.25s ease-in"
+            : offset
+              ? "none"
+              : "transform 0.2s ease-out",
+        }}
       >
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-leil-dark/8">
@@ -60,7 +97,7 @@ export default function FilterSidebar({
             >
               Reset
             </button>
-            <button onClick={onClose} className="text-leil-dark/40 hover:text-leil-dark transition-colors">
+            <button onClick={handleClose} className="text-leil-dark/40 hover:text-leil-dark transition-colors">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
               </svg>
@@ -171,7 +208,7 @@ export default function FilterSidebar({
         {/* Apply */}
         <div className="px-6 py-4 border-t border-leil-dark/8">
           <button
-            onClick={onClose}
+            onClick={handleClose}
             className="w-full bg-leil-dark text-leil-cream font-body text-xs tracking-[0.15em] uppercase py-4 hover:bg-leil-rose transition-colors duration-200"
           >
             Apply Filters

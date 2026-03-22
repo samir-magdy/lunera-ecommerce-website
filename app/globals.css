@@ -46,12 +46,7 @@ h1, h2, h3, h4 {
 ::-webkit-scrollbar-thumb  { background: var(--leil-blush); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--leil-rose); }
 
-/* ── Global transition defaults ─────────────── */
-* {
-  transition-property: color, background-color, border-color;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
+
 
 /* ── Cart slide animation ────────────────────── */
 @keyframes slideIn {
@@ -65,6 +60,16 @@ h1, h2, h3, h4 {
 
 .animate-slide-in  { animation: slideIn 0.3s ease-out; }
 .animate-slide-out { animation: slideOut 0.3s ease-in; }
+
+@keyframes slideInLeft {
+  from { transform: translateX(-100%); opacity: 0; }
+  to   { transform: translateX(0);     opacity: 1; }
+}
+@keyframes slideOutLeft {
+  from { transform: translateX(0);     opacity: 1; }
+  to   { transform: translateX(-100%); opacity: 0; }
+}
+.animate-slide-out-left { animation: slideOutLeft 0.3s ease-in; }
 
 /* ── Range Slider ───────────────────────────── */
 .range-slider-thumb { pointer-events: none; }

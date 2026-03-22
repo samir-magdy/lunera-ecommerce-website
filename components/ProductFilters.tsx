@@ -30,9 +30,15 @@ export default function ProductFilters({ products }: { products: Product[] }) {
   const priceRange       = searchParams.get("price")    ?? "all";
   const currentPage      = Number(searchParams.get("page") ?? "1");
 
-  // Custom slider state (independent of URL presets)
-  const [sliderMin, setSliderMin] = useState(0);
-  const [sliderMax, setSliderMax] = useState(MAX_PRICE);
+  // Custom slider state — initialized from URL so back/forward stays in sync
+  const [sliderMin, setSliderMin] = useState(() => {
+    const min = searchParams.get("min");
+    return min ? Number(min) : 0;
+  });
+  const [sliderMax, setSliderMax] = useState(() => {
+    const max = searchParams.get("max");
+    return max ? Number(max) : MAX_PRICE;
+  });
   const { isFilterOpen, setIsFilterOpen } = useFilter();
   const isMounted = useRef(false);
 
@@ -40,6 +46,15 @@ export default function ProductFilters({ products }: { products: Product[] }) {
     if (!isMounted.current) { isMounted.current = true; return; }
     document.getElementById("collection")?.scrollIntoView({ behavior: "smooth" });
   }, [currentPage]);
+
+  useEffect(() => {
+    if (priceRange === "custom") {
+      const min = searchParams.get("min");
+      const max = searchParams.get("max");
+      if (min !== null) setSliderMin(Number(min));
+      if (max !== null) setSliderMax(Number(max));
+    }
+  }, [searchParams, priceRange]);
 
   // All unique categories from data
   const categories = useMemo(
@@ -121,8 +136,22 @@ export default function ProductFilters({ products }: { products: Product[] }) {
         onPriceChange={v => { updateParam("price", v); }}
         minPrice={sliderMin}
         maxPrice={sliderMax}
-        onMinPriceChange={v => { setSliderMin(v); updateParam("price", "custom"); }}
-        onMaxPriceChange={v => { setSliderMax(v); updateParam("price", "custom"); }}
+        onMinPriceChange={v => {
+          setSliderMin(v);
+          const params = new URLSearchParams(searchParams.toString());
+          params.set("price", "custom");
+          params.set("min", String(v));
+          params.delete("page");
+          router.push(`/?${params.toString()}`, { scroll: false });
+        }}
+        onMaxPriceChange={v => {
+          setSliderMax(v);
+          const params = new URLSearchParams(searchParams.toString());
+          params.set("price", "custom");
+          params.set("max", String(v));
+          params.delete("page");
+          router.push(`/?${params.toString()}`, { scroll: false });
+        }}
         onReset={handleReset}
       />
 
@@ -179,6 +208,14 @@ export default function ProductFilters({ products }: { products: Product[] }) {
             {priceRange !== "all" && (
               <span className="font-body text-xs bg-leil-blush text-leil-dark px-3 py-1">
                 Price filter active
+              </span>
+            )}
+            {sortBy !== "featured" && (
+              <span className="font-body text-xs bg-leil-blush text-leil-dark px-3 py-1">
+                {sortBy === "price-low" ? "Price: Low–High"
+                 : sortBy === "price-high" ? "Price: High–Low"
+                 : sortBy === "name" ? "Name: A–Z"
+                 : sortBy}
               </span>
             )}
             <button

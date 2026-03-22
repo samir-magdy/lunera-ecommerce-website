@@ -19,7 +19,7 @@ export default function CartButton() {
       </svg>
       <span className="font-body text-xs tracking-[0.15em] uppercase hidden sm:inline">Bag</span>
       {cartCount > 0 && (
-        <span className="absolute -top-2.5 -right-2.5 bg-leil-rose text-leil-cream font-body text-[0.6rem] font-medium rounded-full w-4.5 h-4.5 flex items-center justify-center min-w-[1.1rem] px-1">
+        <span className="absolute -top-2.5 -right-2.5 bg-leil-rose text-leil-cream font-body text-[0.6rem] font-medium rounded-full w-[1.125rem] h-[1.125rem] flex items-center justify-center min-w-[1.1rem] px-1">
           {cartCount > 99 ? "99+" : cartCount}
         </span>
       )}

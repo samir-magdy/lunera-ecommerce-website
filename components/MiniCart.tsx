@@ -1,5 +1,7 @@
 "use client";
 
+import { useState, useEffect } from "react";
+import { useSwipeToDismiss } from "@/hooks/useSwipeToDismiss";
 import { useCart }  from "@/context/CartContext";
 import Image        from "next/image";
 import Link         from "next/link";
@@ -13,18 +15,53 @@ export default function MiniCart() {
     updateQuantity, removeFromCart,
   } = useCart();
 
-  if (!isCartOpen) return null;
+  const [isClosing, setIsClosing] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = isCartOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [isCartOpen]);
+
+  const handleClose = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setIsClosing(false);
+      setIsCartOpen(false);
+    }, 280);
+  };
+
+  const { offset, swipeOut, handlers } = useSwipeToDismiss({
+    direction: "right",
+    onClose: () => setIsCartOpen(false),
+  });
+
+  if (!isCartOpen && !isClosing && !swipeOut) return null;
 
   return (
     <>
       {/* Backdrop */}
       <div
         className="fixed inset-0 bg-leil-dark/40 backdrop-blur-sm z-40"
-        onClick={() => setIsCartOpen(false)}
+        onClick={handleClose}
       />
 
       {/* Sidebar */}
-      <div className="fixed right-0 top-0 h-full w-full sm:w-96 bg-leil-cream shadow-2xl z-50 flex flex-col animate-slide-in">
+      <div
+        {...handlers}
+        className={`fixed right-0 top-0 h-full w-full sm:w-96 bg-leil-cream shadow-2xl z-50 flex flex-col ${swipeOut ? "" : isClosing ? "animate-slide-out" : "animate-slide-in"}`}
+        style={{
+          transform: swipeOut
+            ? "translateX(100%)"
+            : offset
+              ? `translateX(${offset}px)`
+              : undefined,
+          transition: swipeOut
+            ? "transform 0.25s ease-in"
+            : offset
+              ? "none"
+              : "transform 0.2s ease-out",
+        }}
+      >
 
         {/* Header */}
         <div className="bg-leil-dark text-leil-cream px-6 py-4 flex items-center justify-between">
@@ -35,7 +72,7 @@ export default function MiniCart() {
             </p>
           </div>
           <button
-            onClick={() => setIsCartOpen(false)}
+            onClick={handleClose}
             className="text-leil-cream/50 hover:text-leil-rose transition-colors duration-200"
             aria-label="Close cart"
           >
@@ -54,7 +91,7 @@ export default function MiniCart() {
               </svg>
               <p className="font-body text-xs tracking-[0.2em] uppercase text-leil-dark/35">Your bag is empty</p>
               <button
-                onClick={() => setIsCartOpen(false)}
+                onClick={handleClose}
                 className="font-body text-xs tracking-[0.15em] uppercase text-leil-rose hover:text-leil-rose-dark transition-colors"
               >
                 Continue Shopping
@@ -65,7 +102,7 @@ export default function MiniCart() {
               {cart.map(item => (
                 <div key={item.id} className="flex gap-4 pb-5 border-b border-leil-dark/6 last:border-0">
                   {/* Image */}
-                  <Link href={`/products/${item.slug}`} onClick={() => setIsCartOpen(false)}>
+                  <Link href={`/products/${item.slug}`} onClick={handleClose}>
                     <div className="relative w-16 h-20 flex-shrink-0 overflow-hidden bg-leil-blush/30">
                       <Image src={item.image} alt={item.title} fill className="object-cover" sizes="64px" />
                     </div>
@@ -75,7 +112,7 @@ export default function MiniCart() {
                   <div className="flex-1 min-w-0">
                     <Link
                       href={`/products/${item.slug}`}
-                      onClick={() => setIsCartOpen(false)}
+                      onClick={handleClose}
                       className="font-display text-base font-light text-leil-dark hover:text-leil-rose transition-colors line-clamp-1"
                     >
                       {item.title}
@@ -127,13 +164,13 @@ export default function MiniCart() {
               </span>
             </div>
             <button
-              onClick={() => { setIsCartOpen(false); router.push("/checkout"); }}
+              onClick={() => { handleClose(); router.push("/checkout"); }}
               className="w-full bg-leil-dark text-leil-cream font-body text-xs tracking-[0.15em] uppercase py-4 hover:bg-leil-rose transition-colors duration-200 mb-3"
             >
               Proceed to Checkout
             </button>
             <button
-              onClick={() => setIsCartOpen(false)}
+              onClick={handleClose}
               className="w-full border border-leil-dark text-leil-dark font-body text-xs tracking-[0.15em] uppercase py-4 hover:bg-leil-dark hover:text-leil-cream transition-colors duration-200"
             >
               Continue Shopping
