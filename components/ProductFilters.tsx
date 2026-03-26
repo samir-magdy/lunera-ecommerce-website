@@ -1,13 +1,13 @@
 "use client";
 
-import { useMemo, useState, useEffect, useRef }        from "react";
+import { useMemo, useEffect, useRef }                   from "react";
 import { useRouter, useSearchParams }                 from "next/navigation";
 import { useFilter }                                  from "@/context/FilterContext";
 import ProductCard                                    from "./ProductCard";
 import FilterSidebar                                  from "./FilterSidebar";
 
 const ITEMS_PER_PAGE = 12;
-const MAX_PRICE      = 5000;
+const CATEGORY_ORDER = ["Dresses", "Abayas", "Tops", "Bottoms", "Outerwear", "Accessories"];
 
 interface Product {
   id:          string;
@@ -30,15 +30,6 @@ export default function ProductFilters({ products }: { products: Product[] }) {
   const priceRange       = searchParams.get("price")    ?? "all";
   const currentPage      = Number(searchParams.get("page") ?? "1");
 
-  // Custom slider state — initialized from URL so back/forward stays in sync
-  const [sliderMin, setSliderMin] = useState(() => {
-    const min = searchParams.get("min");
-    return min ? Number(min) : 0;
-  });
-  const [sliderMax, setSliderMax] = useState(() => {
-    const max = searchParams.get("max");
-    return max ? Number(max) : MAX_PRICE;
-  });
   const { isFilterOpen, setIsFilterOpen } = useFilter();
   const isMounted = useRef(false);
 
@@ -47,18 +38,10 @@ export default function ProductFilters({ products }: { products: Product[] }) {
     document.getElementById("collection")?.scrollIntoView({ behavior: "smooth" });
   }, [currentPage]);
 
-  useEffect(() => {
-    if (priceRange === "custom") {
-      const min = searchParams.get("min");
-      const max = searchParams.get("max");
-      if (min !== null) setSliderMin(Number(min));
-      if (max !== null) setSliderMax(Number(max));
-    }
-  }, [searchParams, priceRange]);
 
   // All unique categories from data
   const categories = useMemo(
-    () => [...new Set(products.map(p => p.category))].sort(),
+    () => CATEGORY_ORDER.filter(c => products.some(p => p.category === c)),
     [products]
   );
 
@@ -71,25 +54,20 @@ export default function ProductFilters({ products }: { products: Product[] }) {
     }
 
     // Price filter
-    if (priceRange === "custom") {
-      result = result.filter(p => p.price >= sliderMin && p.price <= sliderMax);
-    } else {
-      switch (priceRange) {
-        case "under-500":  result = result.filter(p => p.price < 500);                         break;
-        case "500-1500":   result = result.filter(p => p.price >= 500  && p.price <= 1500);    break;
-        case "1500-3000":  result = result.filter(p => p.price >= 1500 && p.price <= 3000);    break;
-        case "over-3000":  result = result.filter(p => p.price > 3000);                        break;
-      }
+    switch (priceRange) {
+      case "under-500":  result = result.filter(p => p.price < 500);                         break;
+      case "500-1500":   result = result.filter(p => p.price >= 500  && p.price <= 1500);    break;
+      case "1500-3000":  result = result.filter(p => p.price >= 1500 && p.price <= 3000);    break;
+      case "over-3000":  result = result.filter(p => p.price > 3000);                        break;
     }
 
     switch (sortBy) {
       case "price-low":  result.sort((a, b) => a.price - b.price);        break;
       case "price-high": result.sort((a, b) => b.price - a.price);        break;
-      case "name":       result.sort((a, b) => a.title.localeCompare(b.title)); break;
     }
 
     return result;
-  }, [products, selectedCategory, sortBy, priceRange, sliderMin, sliderMax]);
+  }, [products, selectedCategory, sortBy, priceRange]);
 
   // Pagination
   const totalPages   = Math.ceil(filtered.length / ITEMS_PER_PAGE);
@@ -114,8 +92,6 @@ export default function ProductFilters({ products }: { products: Product[] }) {
   };
 
   const handleReset = () => {
-    setSliderMin(0);
-    setSliderMax(MAX_PRICE);
     router.push("/", { scroll: false });
   };
 
@@ -134,24 +110,6 @@ export default function ProductFilters({ products }: { products: Product[] }) {
         onSortChange={v => updateParam("sort", v)}
         priceRange={priceRange}
         onPriceChange={v => { updateParam("price", v); }}
-        minPrice={sliderMin}
-        maxPrice={sliderMax}
-        onMinPriceChange={v => {
-          setSliderMin(v);
-          const params = new URLSearchParams(searchParams.toString());
-          params.set("price", "custom");
-          params.set("min", String(v));
-          params.delete("page");
-          router.push(`/?${params.toString()}`, { scroll: false });
-        }}
-        onMaxPriceChange={v => {
-          setSliderMax(v);
-          const params = new URLSearchParams(searchParams.toString());
-          params.set("price", "custom");
-          params.set("max", String(v));
-          params.delete("page");
-          router.push(`/?${params.toString()}`, { scroll: false });
-        }}
         onReset={handleReset}
       />
 
@@ -192,7 +150,6 @@ export default function ProductFilters({ products }: { products: Product[] }) {
               <option value="featured">Featured</option>
               <option value="price-low">Price: Low – High</option>
               <option value="price-high">Price: High – Low</option>
-              <option value="name">Name: A – Z</option>
             </select>
           </div>
         </div>
@@ -214,7 +171,6 @@ export default function ProductFilters({ products }: { products: Product[] }) {
               <span className="font-body text-xs bg-leil-blush text-leil-dark px-3 py-1">
                 {sortBy === "price-low" ? "Price: Low–High"
                  : sortBy === "price-high" ? "Price: High–Low"
-                 : sortBy === "name" ? "Name: A–Z"
                  : sortBy}
               </span>
             )}

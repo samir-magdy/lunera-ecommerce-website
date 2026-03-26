@@ -36,8 +36,36 @@ export default function CheckoutPage() {
 
   const handleCompletePurchase = () => {
     if (!canComplete) return;
+
+    const itemLines = cart
+      .map(
+        (item, i) =>
+          `${i + 1}. ${item.title}  ×${item.quantity}  —  EGP ${(item.price * item.quantity).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
+      )
+      .join("\n");
+
+    const message = [
+      `🛍️ *New Order*`,
+      ``,
+      `*Customer*`,
+      `Name: ${firstName.trim()} ${lastName.trim()}`,
+      `Phone: ${phone.trim()}`,
+      `City: ${city.trim()}`,
+      `Address: ${addressLine.trim()}`,
+      ``,
+      `*Items*`,
+      itemLines,
+      ``,
+      `Subtotal: EGP ${cartTotal.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
+      `Shipping: ${shipping === 0 ? "Free" : `EGP ${shipping.toLocaleString("en-US", { minimumFractionDigits: 2 })}`}`,
+      `*Total: EGP ${total.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}*`,
+      ``,
+      `Payment: Cash on Delivery`,
+    ].join("\n");
+
+    const waURL = `https://wa.me/201274613331?text=${encodeURIComponent(message)}`;
+    window.open(waURL, "_blank");
     clearCart();
-    router.push("/");
   };
 
   return (
@@ -48,7 +76,7 @@ export default function CheckoutPage() {
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              handleCompletePurchase();
+              // handleCompletePurchase();
             }}
             className="space-y-6 md:space-y-10"
           >
@@ -156,7 +184,7 @@ export default function CheckoutPage() {
                 Continue Shopping
               </button>
               <button
-                type="button"
+                type="submit"
                 disabled={!canComplete}
                 className="flex-1 font-body text-xs tracking-[0.15em] uppercase bg-leil-dark text-leil-cream px-6 py-4 hover:bg-leil-rose transition-colors duration-200 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-leil-dark"
               >

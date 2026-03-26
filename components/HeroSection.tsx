@@ -241,13 +241,7 @@ export default function HeroSection() {
               />
             </div>
 
-            {/* Decorative price badge */}
-            <div
-              className="absolute bottom-16 right-2 bg-leil-rose text-leil-cream font-body text-[0.65rem] tracking-[0.15em] uppercase px-4 py-2 shadow-md z-20"
-              style={{ transform: "rotate(3deg)" }}
-            >
-              From EGP 299
-            </div>
+       
           </div>
         </div>
       </div>

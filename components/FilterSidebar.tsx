@@ -3,8 +3,6 @@
 import { useState, useEffect } from "react";
 import { useSwipeToDismiss } from "@/hooks/useSwipeToDismiss";
 
-const MAX_PRICE = 5000;
-
 const PRICE_PRESETS = [
   { value: "all",       label: "All Prices"      },
   { value: "under-500", label: "Under EGP 500"   },
@@ -23,10 +21,6 @@ interface FilterSidebarProps {
   onSortChange:     (sort: string) => void;
   priceRange:       string;
   onPriceChange:    (price: string) => void;
-  minPrice:         number;
-  maxPrice:         number;
-  onMinPriceChange: (val: number) => void;
-  onMaxPriceChange: (val: number) => void;
   onReset:          () => void;
 }
 
@@ -35,8 +29,6 @@ export default function FilterSidebar({
   categories, selectedCategory, onCategoryChange,
   sortBy, onSortChange,
   priceRange, onPriceChange,
-  minPrice, maxPrice,
-  onMinPriceChange, onMaxPriceChange,
   onReset,
 }: FilterSidebarProps) {
   const [isClosing, setIsClosing] = useState(false);
@@ -131,8 +123,7 @@ export default function FilterSidebar({
           {/* Price Range */}
           <div>
             <h3 className="font-body text-[0.65rem] tracking-[0.3em] uppercase text-leil-dark/40 mb-3">Price Range</h3>
-
-            <div className="space-y-2 mb-5">
+            <div className="space-y-2">
               {PRICE_PRESETS.map(preset => (
                 <button
                   key={preset.value}
@@ -147,36 +138,6 @@ export default function FilterSidebar({
                 </button>
               ))}
             </div>
-
-            {/* Custom dual-thumb slider */}
-            <div className="pt-2">
-              <div className="flex justify-between font-body text-xs text-leil-dark/50 mb-3">
-                <span>EGP {minPrice.toLocaleString()}</span>
-                <span>EGP {maxPrice.toLocaleString()}</span>
-              </div>
-              <div className="relative pt-2 pb-6">
-                <div className="absolute w-full h-1 bg-leil-blush rounded-full top-2" />
-                <div
-                  className="absolute h-1 bg-leil-rose rounded-full top-2"
-                  style={{
-                    left:  `${(minPrice / MAX_PRICE) * 100}%`,
-                    right: `${100 - (maxPrice / MAX_PRICE) * 100}%`,
-                  }}
-                />
-                <input
-                  type="range" min="0" max={MAX_PRICE} step="100"
-                  value={maxPrice}
-                  onChange={e => onMaxPriceChange(Math.max(Number(e.target.value), minPrice + 100))}
-                  className="absolute w-full top-0 range-slider-thumb appearance-none bg-transparent"
-                />
-                <input
-                  type="range" min="0" max={MAX_PRICE} step="100"
-                  value={minPrice}
-                  onChange={e => onMinPriceChange(Math.min(Number(e.target.value), maxPrice - 100))}
-                  className="absolute w-full top-0 range-slider-thumb appearance-none bg-transparent"
-                />
-              </div>
-            </div>
           </div>
 
           {/* Sort */}
@@ -187,7 +148,6 @@ export default function FilterSidebar({
                 { value: "featured",   label: "Featured"           },
                 { value: "price-low",  label: "Price: Low to High" },
                 { value: "price-high", label: "Price: High to Low" },
-                { value: "name",       label: "Name: A – Z"        },
               ].map(opt => (
                 <button
                   key={opt.value}

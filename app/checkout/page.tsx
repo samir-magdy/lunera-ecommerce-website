@@ -1,8 +1,7 @@
 import CheckoutPage from "@/components/checkout/CheckoutPage";
 
 export const metadata = {
-  title: "Checkout | Leil",
-  description: "Checkout",
+  title: "Checkout | SM Web Studio",
 };
 
 export default function Checkout() {

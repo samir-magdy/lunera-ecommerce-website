@@ -17,9 +17,10 @@ export default function Navbar() {
 
             {/* Logo */}
             <Link
-              href="/"
-              className="font-display text-2xl font-light tracking-[0.12em] text-leil-cream hover:text-leil-rose transition-colors duration-200 flex-shrink-0"
-            >SM Web Studio
+              href="https://samirmagdy.com"
+              target="_blank"
+              className="font-display text-4xl font-light  text-leil-cream hover:text-leil-rose transition-colors duration-200 flex-shrink-0"
+            >SM
             </Link>
 
             {/* Right controls */}

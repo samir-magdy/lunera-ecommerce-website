@@ -71,32 +71,3 @@ h1, h2, h3, h4 {
 }
 .animate-slide-out-left { animation: slideOutLeft 0.3s ease-in; }
 
-/* ── Range Slider ───────────────────────────── */
-.range-slider-thumb { pointer-events: none; }
-
-.range-slider-thumb::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 18px; height: 18px;
-  border-radius: 50%;
-  background: var(--leil-dark);
-  cursor: pointer;
-  border: 3px solid var(--leil-cream);
-  box-shadow: 0 2px 6px rgba(44, 30, 38, 0.25);
-  pointer-events: auto;
-}
-.range-slider-thumb::-webkit-slider-thumb:hover { background: var(--leil-rose); }
-
-.range-slider-thumb::-moz-range-thumb {
-  width: 18px; height: 18px;
-  border-radius: 50%;
-  background: var(--leil-dark);
-  cursor: pointer;
-  border: 3px solid var(--leil-cream);
-  box-shadow: 0 2px 6px rgba(44, 30, 38, 0.25);
-  pointer-events: auto;
-}
-.range-slider-thumb::-moz-range-thumb:hover { background: var(--leil-rose); }
-
-.range-slider-thumb::-webkit-slider-runnable-track { background: transparent; border: none; }
-.range-slider-thumb::-moz-range-track             { background: transparent; border: none; }

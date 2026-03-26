@@ -2,11 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import AddToCartButton from "@/components/AddToCartButton";
-// import {
-//   getProductBySlug,
-//   getProducts,
-//   getProductSlugs,
-// } from "@/sanity/lib/products";
 import productsData from "@/data/products.json";
 
 interface ProductPageProps {
@@ -30,8 +25,7 @@ export async function generateMetadata({ params }: ProductPageProps) {
   }
 
   return {
-    title: `${product.title} | Leil`,
-    description: product.description,
+    title: `${product.title} | SM Web Studio`,
   };
 }
 
