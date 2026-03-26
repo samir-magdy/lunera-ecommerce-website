@@ -52,16 +52,16 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "/favicon.png",
-        type: "image/png",
-        sizes: "96x96",
-      },
-      {
-        url: "/favicon-v3-on-dark.svg",
-        type: "image/svg+xml",
+        url: "/favicon.ico",
+        type: "image/x-icon",
+        sizes: "48x48",
       },
       {
         url: "/favicon-v3-on-light.svg",
+        type: "image/svg+xml",
+      },
+      {
+        url: "/favicon-v3-on-dark.svg",
         type: "image/svg+xml",
         media: "(prefers-color-scheme: dark)",
       },
