@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 import Image from "next/image";
 
 const CYCLING_WORDS = ["Style", "Grace", "Story", "Presence"];
@@ -70,7 +69,7 @@ export default function HeroSection() {
     // Scroll after client-side navigation settles (avoids full-page-reload timing race)
     setTimeout(() => {
       document.getElementById("collection")?.scrollIntoView();
-    }, 100);
+    }, 300);
   };
 
   const handleShopCTA = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -79,7 +78,7 @@ export default function HeroSection() {
     // Scroll after client-side navigation settles (avoids full-page-reload timing race)
     setTimeout(() => {
       document.getElementById("collection")?.scrollIntoView();
-    }, 100);
+    }, 300);
   };
 
   useEffect(() => {
@@ -89,7 +88,7 @@ export default function HeroSection() {
         setWordIndex((prev) => (prev + 1) % CYCLING_WORDS.length);
         setWordVisible(true);
       }, 350);
-    }, 2800);
+    }, 2500);
     return () => clearInterval(timer);
   }, []);
 
@@ -105,14 +104,14 @@ export default function HeroSection() {
           src={HERO_IMAGES[2].src}
           alt={HERO_IMAGES[2].alt}
           fill
-          className="object-cover"
+          className="object-cover opacity-[0.5]"
           sizes="100vw"
           priority
         />
       </div> */}
 
       {/* Mobile — cream gradient overlay (bottom → transparent) */}
-      <div className="absolute inset-0 lg:hidden bg-gradient-to-t from-leil-cream via-leil-cream/85 to-transparent" />
+      {/* <div className="absolute inset-0 lg:hidden bg-gradient-to-t from-leil-cream via-leil-cream/85 to-transparent" /> */}
 
       {/* Ambient glow — desktop only */}
       <div className="hidden lg:block absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/3 w-[600px] h-[600px] rounded-full bg-leil-blush/25 blur-3xl pointer-events-none" />
@@ -247,15 +246,15 @@ export default function HeroSection() {
       </div>
 
       {/* ── Bottom category marquee ── */}
-      <div className="relative z-10 border-t border-leil-dark/8 py-3.5 overflow-hidden bg-leil-cream/60 backdrop-blur-sm">
+      <div className="relative z-10 border-t border-leil-dark/20 py-3.5 overflow-hidden bg-leil-cream/60 backdrop-blur-sm pb-12 sm:pb-3.5">
         <div className="flex animate-marquee-fast md:animate-marquee whitespace-nowrap">
           {MARQUEE_ITEMS.map((cat, i) => (
             <div
               key={i}
-              className="mx-5 font-body text-[0.65rem] tracking-[0.28em] uppercase text-leil-dark/35 hover:text-leil-rose transition-colors duration-200 flex items-center gap-5"
+              className="mx-5 font-body text-[0.65rem] tracking-[0.28em] uppercase text-leil-dark/60 hover:text-leil-rose transition-colors duration-200 flex items-center gap-5"
             >
               {cat}
-              <span className="text-leil-blush text-[0.5rem]">✦</span>
+              <span className="text-[#ba9987b0] text-[0.5rem]">✦</span>
             </div>
           ))}
         </div>
