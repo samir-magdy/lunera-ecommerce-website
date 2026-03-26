@@ -26,7 +26,7 @@ const jost = Jost({
 // SITE-WIDE CONSTANTS
 // ─────────────────────────────────────────────
 
-const SITE_URL="https://samirmagdy.com"
+const SITE_URL="https://ecommerce.samirmagdy.com"
 const SITE_NAME = "SM Web Studio";
 const CONTACT_EMAIL = "studio@samirmagdy.com";
 const PHONE_NUMBER = "+201274613331";
