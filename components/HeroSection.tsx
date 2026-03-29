@@ -56,29 +56,23 @@ const HERO_IMAGES = [
 ];
 
 // Duplicate for seamless marquee loop
-const MARQUEE_ITEMS = [...CATEGORIES, ...CATEGORIES, ...CATEGORIES];
+const MARQUEE_ITEMS = [...CATEGORIES, ...CATEGORIES];
 
 export default function HeroSection() {
   const router = useRouter();
   const [wordIndex, setWordIndex] = useState(0);
   const [wordVisible, setWordVisible] = useState(true);
 
-  const handleShopAbayas = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleShopDresses = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    router.push("/?category=Dresses");
-    // Scroll after client-side navigation settles (avoids full-page-reload timing race)
-    setTimeout(() => {
-      document.getElementById("collection")?.scrollIntoView();
-    }, 300);
+    router.push("/?category=Dresses#collection");
+    document.getElementById("collection")?.scrollIntoView({ behavior: "smooth" });
   };
 
   const handleShopCTA = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    router.push("/?category=All");
-    // Scroll after client-side navigation settles (avoids full-page-reload timing race)
-    setTimeout(() => {
-      document.getElementById("collection")?.scrollIntoView();
-    }, 300);
+    router.push("/?category=All#collection");
+    document.getElementById("collection")?.scrollIntoView({ behavior: "smooth" });
   };
 
   useEffect(() => {
@@ -161,8 +155,8 @@ export default function HeroSection() {
                 Shop Collection
               </a>
               <a
-                href="/?category=Abayas#collection"
-                onClick={handleShopAbayas}
+                href="/?category=Dresses#collection"
+                onClick={handleShopDresses}
                 className="font-body font-medium text-xs tracking-[0.14em] uppercase border border-leil-dark text-leil-dark px-8 py-4 hover:bg-leil-dark hover:text-leil-cream transition-colors duration-300"
               >
                 Shop Dresses
@@ -246,7 +240,7 @@ export default function HeroSection() {
       </div>
 
       {/* ── Bottom category marquee ── */}
-      <div className="relative z-10 border-t border-leil-dark/20 py-3.5 overflow-hidden bg-leil-cream/60 backdrop-blur-sm pb-12 sm:pb-3.5">
+      <div className="relative z-10 border-t border-leil-dark/20 py-3.5 overflow-hidden bg-leil-cream/60 backdrop-blur-sm pb-16 sm:pb-3.5">
         <div className="flex animate-marquee-fast md:animate-marquee whitespace-nowrap">
           {MARQUEE_ITEMS.map((cat, i) => (
             <div

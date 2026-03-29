@@ -18,7 +18,7 @@ export default function Navbar() {
 
             {/* Logo */}
             <Link
-              href="https://samirmagdy.com"
+              href="/"
               target="_blank"
               className="font-display text-4xl font-light  text-leil-cream flex-shrink-0"
             >SM

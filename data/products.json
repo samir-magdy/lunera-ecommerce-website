@@ -6,6 +6,11 @@
     "price": 1299,
     "category": "Dresses",
     "image": "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=800&q=80",
+      "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&q=80",
+      "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=800&q=80"
+    ],
     "description": "A flowing floral midi dress perfect for summer occasions. Features a V-neckline, adjustable waist tie, and a delicate print on breathable fabric.",
     "inStock": true
   },
@@ -16,6 +21,11 @@
     "price": 899,
     "category": "Accessories",
     "image": "https://images.unsplash.com/photo-1622560480654-d96214fdc887?w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1622560480654-d96214fdc887?w=800&q=80",
+      "https://images.unsplash.com/photo-1564584217132-2271feaeb3c5?w=800&q=80",
+      "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&q=80"
+    ],
     "description": "A timeless classic abaya crafted in lightweight crepe. Clean lines, subtle button detail, and an open-front cut — effortlessly elegant for everyday wear.",
     "inStock": true
   },
@@ -26,6 +36,11 @@
     "price": 749,
     "category": "Bottoms",
     "image": "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&q=80",
+      "https://images.unsplash.com/photo-1509551388413-e18d0ac5d495?w=800&q=80",
+      "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=800&q=80"
+    ],
     "description": "Relaxed wide-leg trousers in a breathable linen blend. High-waisted with side pockets, tailored to move with you in the Egyptian heat.",
     "inStock": true
   },
@@ -36,6 +51,11 @@
     "price": 2199,
     "category": "Dresses",
     "image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&q=80",
+      "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=800&q=80",
+      "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=800&q=80"
+    ],
     "description": "A statement occasion dress with delicate floral embroidery on the bodice. Fitted silhouette with a flared skirt — made for weddings, engagements, and celebrations.",
     "inStock": false
   },
@@ -46,6 +66,11 @@
     "price": 449,
     "category": "Tops",
     "image": "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=1200&q=90",
+    "images": [
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=1200&q=90",
+      "https://images.unsplash.com/photo-1583744946564-b52ac1c389c8?w=800&q=80",
+      "https://images.unsplash.com/photo-1554568218-0f1715e72254?w=800&q=80"
+    ],
     "description": "A soft ribbed knit crop top with a square neckline. Versatile enough to pair with high-waisted trousers or layer under a blazer.",
     "inStock": true
   },
@@ -56,6 +81,11 @@
     "price": 799,
     "category": "Bottoms",
     "image": "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=800&q=80",
+      "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&q=80",
+      "https://images.unsplash.com/photo-1509551388413-e18d0ac5d495?w=800&q=80"
+    ],
     "description": "A fluid pleated midi skirt in lustrous satin. Elegant drape with a comfortable elastic waistband — easy to dress up or down.",
     "inStock": true
   },
@@ -66,6 +96,11 @@
     "price": 1599,
     "category": "Outerwear",
     "image": "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=800&q=80",
+      "https://images.unsplash.com/photo-1591369822096-ffd140ec948f?w=800&q=80",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=1200&q=90"
+    ],
     "description": "A sharp double-breasted blazer in a neutral tone. Padded shoulders, fitted cut, and a polished finish — the kind of piece that elevates everything underneath.",
     "inStock": true
   },
@@ -76,6 +111,11 @@
     "price": 349,
     "category": "Accessories",
     "image": "https://images.unsplash.com/photo-1564584217132-2271feaeb3c5?w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1564584217132-2271feaeb3c5?w=800&q=80",
+      "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&q=80",
+      "https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=800&q=80"
+    ],
     "description": "Delicate faux pearl drop earrings with gold-tone hardware. Lightweight and elegant — the finishing touch for any outfit.",
     "inStock": true
   },
@@ -86,6 +126,11 @@
     "price": 3299,
     "category": "Dresses",
     "image": "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=800&q=80",
+      "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&q=80",
+      "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=800&q=80"
+    ],
     "description": "A sweeping satin column gown with a low back. Floor-length, bias-cut, and minimal — for evenings that deserve something extraordinary.",
     "inStock": true
   },
@@ -96,6 +141,11 @@
     "price": 399,
     "category": "Accessories",
     "image": "https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=800&q=80",
+      "https://images.unsplash.com/photo-1564584217132-2271feaeb3c5?w=800&q=80",
+      "https://images.unsplash.com/photo-1622560480654-d96214fdc887?w=800&q=80"
+    ],
     "description": "A luxurious printed silk scarf in an abstract botanical pattern. Wear as a headscarf, tie around the neck, or knot through a bag handle.",
     "inStock": true
   },
@@ -106,6 +156,11 @@
     "price": 1399,
     "category": "Abayas",
     "image": "https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?w=800&q=80",
+      "https://images.unsplash.com/photo-1617019114583-affb34d1b3cd?w=800&q=80",
+      "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=800&q=80"
+    ],
     "description": "An open-front abaya with embroidered cuff and hem detail. Lightweight chiffon overlay, available in black and midnight navy.",
     "inStock": true
   },
@@ -116,6 +171,11 @@
     "price": 1999,
     "category": "Accessories",
     "image": "https://images.unsplash.com/photo-1560243563-062bfc001d68?w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1560243563-062bfc001d68?w=800&q=80",
+      "https://images.unsplash.com/photo-1622560480654-d96214fdc887?w=800&q=80",
+      "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&q=80"
+    ],
     "description": "A structured leather tote with a clean rectangular silhouette. Spacious main compartment, interior zip pocket, and top handles — built for daily elegance.",
     "inStock": false
   },
@@ -126,6 +186,11 @@
     "price": 1149,
     "category": "Dresses",
     "image": "https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?w=800&q=80",
+      "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=800&q=80",
+      "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=800&q=80"
+    ],
     "description": "A relaxed kaftan-style dress in washed linen. Wide sleeves, side slits, and a tie waist — effortlessly cool for warm Egyptian evenings.",
     "inStock": true
   },
@@ -136,6 +201,11 @@
     "price": 1749,
     "category": "Abayas",
     "image": "https://images.unsplash.com/photo-1617019114583-affb34d1b3cd?w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1617019114583-affb34d1b3cd?w=800&q=80",
+      "https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?w=800&q=80",
+      "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=800&q=80"
+    ],
     "description": "A luxurious velvet abaya with a self-tie belt at the waist. Rich texture, subtle sheen, and a fluid drape — made for special occasions.",
     "inStock": true
   },
@@ -146,6 +216,11 @@
     "price": 1349,
     "category": "Outerwear",
     "image": "https://images.unsplash.com/photo-1591369822096-ffd140ec948f?w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1591369822096-ffd140ec948f?w=800&q=80",
+      "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=800&q=80",
+      "https://images.unsplash.com/photo-1583744946564-b52ac1c389c8?w=800&q=80"
+    ],
     "description": "An oversized linen blazer with dropped shoulders and patch pockets. Wear open over a slip dress or buttoned as a standalone top.",
     "inStock": true
   },
@@ -156,6 +231,11 @@
     "price": 849,
     "category": "Bottoms",
     "image": "https://images.unsplash.com/photo-1509551388413-e18d0ac5d495?w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1509551388413-e18d0ac5d495?w=800&q=80",
+      "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&q=80",
+      "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=800&q=80"
+    ],
     "description": "Sweeping palazzo trousers in a lightweight crepe. High-waisted with a wide waistband and full-length legs — elegant movement with every step.",
     "inStock": true
   },
@@ -166,6 +246,11 @@
     "price": 549,
     "category": "Tops",
     "image": "https://images.unsplash.com/photo-1583744946564-b52ac1c389c8?w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1583744946564-b52ac1c389c8?w=800&q=80",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=1200&q=90",
+      "https://images.unsplash.com/photo-1554568218-0f1715e72254?w=800&q=80"
+    ],
     "description": "A crisp off-shoulder top in cotton poplin. Elasticated neckline, slightly billowy sleeves, and a tucked-in length — pairs perfectly with tailored trousers.",
     "inStock": true
   },
@@ -176,6 +261,11 @@
     "price": 429,
     "category": "Accessories",
     "image": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&q=80",
+      "https://images.unsplash.com/photo-1564584217132-2271feaeb3c5?w=800&q=80",
+      "https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=800&q=80"
+    ],
     "description": "A bold wide cuff bracelet in brushed gold-tone metal. Slightly adjustable opening, smooth curved profile — a statement piece worn alone or stacked.",
     "inStock": true
   },
@@ -186,6 +276,11 @@
     "price": 1499,
     "category": "Dresses",
     "image": "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=800&q=80",
+      "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=800&q=80",
+      "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&q=80"
+    ],
     "description": "A floor-length wrap dress in a soft jersey fabric. Adjustable fit, V-neckline, and a flowing silhouette that flatters every figure.",
     "inStock": true
   },
@@ -196,6 +291,11 @@
     "price": 699,
     "category": "Tops",
     "image": "https://images.unsplash.com/photo-1554568218-0f1715e72254?w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1554568218-0f1715e72254?w=800&q=80",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=1200&q=90",
+      "https://images.unsplash.com/photo-1583744946564-b52ac1c389c8?w=800&q=80"
+    ],
     "description": "A minimalist silk-touch cami with thin adjustable straps and a bias-cut hem. Layer under a blazer or wear alone for understated elegance.",
     "inStock": false
   }

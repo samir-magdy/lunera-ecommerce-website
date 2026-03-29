@@ -64,7 +64,7 @@ export default function FilterSidebar({
       {/* Panel */}
       <div
         {...handlers}
-        className={`fixed left-0 top-0 h-full w-80 bg-leil-cream shadow-2xl z-50 flex flex-col${isClosing && !swipeOut ? " animate-slide-out-left" : ""}`}
+        className={`fixed left-0 top-0 h-full w-full sm:w-80 bg-leil-cream shadow-2xl z-50 flex flex-col${isClosing && !swipeOut ? " animate-slide-out-left" : ""}`}
         style={{
           ...(isClosing || swipeOut ? {} : { animation: "slideInLeft 0.3s ease-out" }),
           transform: swipeOut

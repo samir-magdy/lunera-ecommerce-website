@@ -7,10 +7,8 @@ export default function Footer() {
 
   const handleCategoryClick = (e: React.MouseEvent<HTMLAnchorElement>, cat: string) => {
     e.preventDefault();
-    router.push(`/?category=${cat}`, { scroll: false });
-    setTimeout(() => {
-      document.getElementById("collection")?.scrollIntoView();
-    }, 100);
+    router.push(`/?category=${cat}#collection`, { scroll: false });
+    document.getElementById("collection")?.scrollIntoView({ behavior: "smooth" });
   };
   return (
     <footer className="bg-leil-dark text-leil-cream mt-20 px-4">
@@ -36,7 +34,7 @@ export default function Footer() {
               {["Dresses", "Abayas", "Tops", "Bottoms", "Accessories", "Outerwear"].map(cat => (
                 <li key={cat}>
                   <a
-                    href={`/?category=${cat}`}
+                    href={`/?category=${cat}#collection`}
                     onClick={e => handleCategoryClick(e, cat)}
                     className="text-leil-cream/50 hover:text-leil-rose transition-colors duration-200"
                   >
@@ -112,7 +110,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://www.instagram.com/smweb.studio"
+                href="https://www.instagram.com/SMWebStudioEG"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -138,8 +136,16 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-leil-cream/8 mt-12 pt-6 flex flex-col sm:flex-row items-center justify-between">
-          <p className="font-body text-xs text-leil-cream/25 tracking-wide">
-            © {new Date().getFullYear()} SM Web Studio. All rights reserved.
+          <p className="font-body text-xs text-leil-cream/60 tracking-wide">
+            © {new Date().getFullYear()} All rights reserved. Built by{" "}
+              <a
+                href="https://samirmagdy.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-leil-cream/80 underline underline-offset-2 decoration-leil-cream/25 hover:text-leil-rose hover:decoration-leil-rose transition-colors duration-200"
+              >
+                SM Web Studio
+              </a>
           </p>
           
         </div>

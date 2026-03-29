@@ -148,8 +148,8 @@ export default function ProductFilters({ products }: { products: Product[] }) {
               className="font-body text-xs tracking-[0.1em] uppercase border border-leil-dark/20 px-3 py-2 bg-transparent text-leil-dark focus:outline-none focus:border-leil-rose cursor-pointer"
             >
               <option value="featured">Featured</option>
-              <option value="price-low">Price: Low – High</option>
-              <option value="price-high">Price: High – Low</option>
+              <option value="price-low">Price: Low - High</option>
+              <option value="price-high">Price: High - Low</option>
             </select>
           </div>
         </div>

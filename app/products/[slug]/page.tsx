@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import AddToCartButton from "@/components/AddToCartButton";
+import ProductImageGallery from "@/components/ProductImageGallery";
 import productsData from "@/data/products.json";
 
 interface ProductPageProps {
@@ -25,7 +26,9 @@ export async function generateMetadata({ params }: ProductPageProps) {
   }
 
   return {
-    title: `${product.title} | SM Web Studio`,
+    title: `إنشاء متجر إلكتروني | SM Web Studio`,
+    description:
+      "High-end web design studio offering premium quality at competitive rates. We bridge the gap between agency-level professionalism & freelancer flexibility.",
   };
 }
 
@@ -73,28 +76,13 @@ export default async function ProductPage({ params }: ProductPageProps) {
         <div className="bg-leil-cream-dark overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-2 md:gap-8 p-6 lg:p-10">
 
-            {/* Product Image */}
-            <div className="relative aspect-square bg-leil-blush/30 overflow-hidden">
-              <Image
-                src={product.image}
-                alt={product.title}
-                fill
-                className="object-cover"
-                priority
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-              {/* Category pill */}
-              <span className="absolute top-4 left-4 bg-leil-cream/90 backdrop-blur-sm font-body text-[0.6rem] tracking-[0.2em] uppercase text-leil-dark px-2.5 py-1">
-                {product.category}
-              </span>
-              {!product.inStock && (
-                <div className="absolute inset-0 bg-leil-dark/50 flex items-center justify-center">
-                  <span className="font-body text-xs tracking-[0.2em] uppercase text-leil-cream bg-leil-dark/80 px-6 py-3">
-                    Out of Stock
-                  </span>
-                </div>
-              )}
-            </div>
+            {/* Product Image Gallery */}
+            <ProductImageGallery
+              images={(product as any).images ?? [product.image]}
+              title={product.title}
+              category={product.category}
+              inStock={product.inStock}
+            />
 
             {/* Product Info */}
             <div className="flex flex-col pt-6 lg:pt-0">
