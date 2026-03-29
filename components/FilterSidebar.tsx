@@ -83,12 +83,6 @@ export default function FilterSidebar({
         <div className="flex items-center justify-between px-6 py-4 border-b border-leil-dark/8">
           <h2 className="font-body text-xs tracking-[0.3em] uppercase text-leil-dark">Filter & Sort</h2>
           <div className="flex items-center gap-4">
-            <button
-              onClick={onReset}
-              className="font-body text-[0.65rem] tracking-[0.15em] uppercase text-leil-rose hover:text-leil-rose-dark transition-colors"
-            >
-              Reset
-            </button>
             <button onClick={handleClose} className="text-leil-dark/40 hover:text-leil-dark transition-colors">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
@@ -98,7 +92,7 @@ export default function FilterSidebar({
         </div>
 
         {/* Scrollable body */}
-        <div className="flex-1 overflow-y-auto px-6 py-6 space-y-8">
+        <div className="flex-1 overflow-y-auto px-6 py-2.5 space-y-4">
 
           {/* Category */}
           <div>
@@ -167,6 +161,12 @@ export default function FilterSidebar({
 
         {/* Apply */}
         <div className="px-6 py-4 border-t border-leil-dark/8">
+         <button
+              onClick={onReset}
+              className="w-full border border-leil-dark text-leil-dark font-body text-xs tracking-[0.15em] uppercase py-3.5 hover:bg-leil-dark hover:text-leil-cream transition-colors duration-200 mb-2"
+            >
+              Reset Filters
+            </button>
           <button
             onClick={handleClose}
             className="w-full bg-leil-dark text-leil-cream font-body text-xs tracking-[0.15em] uppercase py-4 hover:bg-leil-rose transition-colors duration-200"

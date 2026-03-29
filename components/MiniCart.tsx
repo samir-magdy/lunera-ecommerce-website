@@ -66,8 +66,8 @@ export default function MiniCart() {
         {/* Header */}
         <div className="bg-leil-dark text-leil-cream px-6 py-4 flex items-center justify-between">
           <div>
-            <h2 className="font-display text-xl font-light tracking-wide">Your Bag</h2>
-            <p className="font-body text-[0.65rem] tracking-[0.2em] uppercase text-leil-cream/40 mt-0.5">
+            <h2 className="text-2xl font-light tracking-wide">Your Bag</h2>
+            <p className="font-body text-[0.65rem] tracking-[0.2em] uppercase text-leil-cream/40 mt-0.5 ps-0.5">
               {cartCount} {cartCount === 1 ? "piece" : "pieces"}
             </p>
           </div>
@@ -142,9 +142,9 @@ export default function MiniCart() {
                       </div>
                       <button
                         onClick={() => removeFromCart(item.id)}
-                        className="font-body text-[0.65rem] tracking-[0.15em] uppercase text-leil-dark/30 hover:text-leil-rose transition-colors"
+                        className="text-gray-700 text-[0.65rem] tracking-[0.15em] uppercase text-leil-dark/30 hover:text-leil-rose transition-colors"
                       >
-                        Remove
+                        Remove X
                       </button>
                     </div>
                   </div>

@@ -55,8 +55,24 @@ const HERO_IMAGES = [
   },
 ];
 
-// Duplicate for seamless marquee loop
-const MARQUEE_ITEMS = [...CATEGORIES, ...CATEGORIES];
+// Repeat enough times so one track always exceeds the widest viewport
+const TRACK_ITEMS = [...CATEGORIES, ...CATEGORIES, ...CATEGORIES, ...CATEGORIES];
+
+function MarqueeTrack() {
+  return (
+    <div className="flex shrink-0">
+      {TRACK_ITEMS.map((cat, i) => (
+        <div
+          key={i}
+          className="mx-5 font-body text-[0.65rem] tracking-[0.28em] uppercase text-leil-dark/60 hover:text-leil-rose transition-colors duration-200 flex items-center gap-5 whitespace-nowrap"
+        >
+          {cat}
+          <span className="text-[#ba9987b0] text-[0.5rem]">✦</span>
+        </div>
+      ))}
+    </div>
+  );
+}
 
 export default function HeroSection() {
   const router = useRouter();
@@ -86,26 +102,10 @@ export default function HeroSection() {
     return () => clearInterval(timer);
   }, []);
 
-
   return (
     <section className="relative min-h-[calc(100dvh-4rem)] bg-leil-cream overflow-hidden flex flex-col">
       {/* Grain texture */}
       <div className="absolute inset-0 bg-noise opacity-[0.025] pointer-events-none" />
-
-      {/* Mobile — full bleed background image */}
-      {/* <div className="absolute inset-0 lg:hidden">
-        <Image
-          src={HERO_IMAGES[2].src}
-          alt={HERO_IMAGES[2].alt}
-          fill
-          className="object-cover opacity-[0.5]"
-          sizes="100vw"
-          priority
-        />
-      </div> */}
-
-      {/* Mobile — cream gradient overlay (bottom → transparent) */}
-      {/* <div className="absolute inset-0 lg:hidden bg-gradient-to-t from-leil-cream via-leil-cream/85 to-transparent" /> */}
 
       {/* Ambient glow — desktop only */}
       <div className="hidden lg:block absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/3 w-[600px] h-[600px] rounded-full bg-leil-blush/25 blur-3xl pointer-events-none" />
@@ -157,7 +157,7 @@ export default function HeroSection() {
               <a
                 href="/?category=Dresses#collection"
                 onClick={handleShopDresses}
-                className="font-body font-medium text-xs tracking-[0.14em] uppercase border border-leil-dark text-leil-dark px-8 py-4 hover:bg-leil-dark hover:text-leil-cream transition-colors duration-300"
+                className="font-body font-medium text-xs tracking-[0.14em] uppercase border border-leil-dark text-leil-dark px-8 py-3.5 hover:bg-leil-dark hover:text-leil-cream transition-colors duration-300"
               >
                 Shop Dresses
               </a>
@@ -207,7 +207,6 @@ export default function HeroSection() {
                 alt={HERO_IMAGES[1].alt}
                 fill
                 className="object-cover"
-                
               />
               <div className="absolute bottom-3 left-3 right-3 bg-leil-cream/95 px-3 py-2">
                 <p className="font-body text-[0.65rem] tracking-[0.2em] uppercase text-leil-dark">
@@ -233,24 +232,15 @@ export default function HeroSection() {
                 className="object-cover"
               />
             </div>
-
-       
           </div>
         </div>
       </div>
 
       {/* ── Bottom category marquee ── */}
-      <div className="relative z-10 border-t border-leil-dark/20 py-3.5 overflow-hidden bg-leil-cream/60 backdrop-blur-sm pb-16 sm:pb-3.5">
-        <div className="flex animate-marquee-fast md:animate-marquee whitespace-nowrap">
-          {MARQUEE_ITEMS.map((cat, i) => (
-            <div
-              key={i}
-              className="mx-5 font-body text-[0.65rem] tracking-[0.28em] uppercase text-leil-dark/60 hover:text-leil-rose transition-colors duration-200 flex items-center gap-5"
-            >
-              {cat}
-              <span className="text-[#ba9987b0] text-[0.5rem]">✦</span>
-            </div>
-          ))}
+      <div className="relative z-10 border-t border-leil-dark/20 py-3 overflow-hidden bg-leil-cream/60 backdrop-blur-sm pb-14 sm:pb-3.5">
+        <div className="flex w-max animate-marquee-fast md:animate-marquee will-change-transform">
+          <MarqueeTrack />
+          <MarqueeTrack />
         </div>
       </div>
     </section>

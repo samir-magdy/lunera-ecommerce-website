@@ -28,13 +28,13 @@ const config: Config = {
         body:    ['var(--font-jost)', 'system-ui', 'sans-serif'],
       },
       animation: {
-        'marquee':      'marquee 30s linear infinite',
-        'marquee-fast': 'marquee 15s linear infinite',
+        'marquee':      'marquee 120s linear infinite',
+        'marquee-fast': 'marquee 80s linear infinite',
       },
       keyframes: {
         marquee: {
-          '0%':   { transform: 'translateX(0%)' },
-          '100%': { transform: 'translateX(-50%)' },
+          '0%':   { transform: 'translate3d(0, 0, 0)' },
+          '100%': { transform: 'translate3d(-50%, 0, 0)' },
         },
       },
     },
