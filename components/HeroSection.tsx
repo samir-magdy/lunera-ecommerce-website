@@ -189,6 +189,7 @@ export default function HeroSection() {
                 alt={HERO_IMAGES[0].alt}
                 fill
                 className="object-cover"
+                priority
               />
             </div>
 
@@ -207,6 +208,7 @@ export default function HeroSection() {
                 alt={HERO_IMAGES[1].alt}
                 fill
                 className="object-cover"
+                priority
               />
               <div className="absolute bottom-3 left-3 right-3 bg-leil-cream/95 px-3 py-2">
                 <p className="font-body text-[0.65rem] tracking-[0.2em] uppercase text-leil-dark">
@@ -230,6 +232,7 @@ export default function HeroSection() {
                 alt={HERO_IMAGES[2].alt}
                 fill
                 className="object-cover"
+                priority
               />
             </div>
           </div>
