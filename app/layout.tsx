@@ -49,23 +49,30 @@ export const metadata: Metadata = {
   title: "Own Your Online Store | SM Web Studio",
   description: META_DESCRIPTION,
   authors: [{ name: "Samir Magdy", url: SITE_URL }],
-  icons: {
-    icon: [
-      {
-        url: "/favicon.ico",
-        type: "image/x-icon",
-        sizes: "48x48",
-      },
-      {
-        url: "/favicon-v3-on-light.svg",
-        type: "image/svg+xml",
-      },
-      {
-        url: "/favicon-v3-on-dark.svg",
-        type: "image/svg+xml",
-        media: "(prefers-color-scheme: dark)",
-      },
-    ],
+   icons: {
+      icon: [
+         {
+          url: "/favicon.png",
+          type: "image/png",
+          sizes: "96x96",
+        },
+        {
+          url: "/favicon.ico",
+          type: "image/x-icon",
+          sizes: "48x48",
+        },
+        {
+          url: "/favicon-light.svg",
+          type: "image/svg+xml",
+          sizes: "any"
+        },
+        {
+          url: "/favicon-dark.svg",
+          type: "image/svg+xml",
+          sizes: "any",
+          media: "(prefers-color-scheme: dark)",
+        },
+      ],
     apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
   },
   alternates: {
@@ -124,7 +131,7 @@ const structuredData = {
       telephone: PHONE_NUMBER,
       email: CONTACT_EMAIL,
       image: `${SITE_URL}/open-graph.webp`,
-      logo: `${SITE_URL}/logo.png`,
+      logo: `${SITE_URL}/business-logo.png`,
       address: {
         "@type": "PostalAddress",
         addressLocality: "Cairo",

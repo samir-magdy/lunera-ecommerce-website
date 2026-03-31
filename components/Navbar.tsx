@@ -19,7 +19,6 @@ export default function Navbar() {
             {/* Logo */}
             <Link
               href="/"
-              target="_blank"
               className="font-display text-4xl font-light  text-leil-cream flex-shrink-0"
             >SM
             </Link>
