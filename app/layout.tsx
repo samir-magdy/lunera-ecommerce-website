@@ -1,42 +1,42 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { CartProvider }   from "@/context/CartContext";
+import { CartProvider } from "@/context/CartContext";
 import { FilterProvider } from "@/context/FilterContext";
-import Navbar  from "@/components/Navbar";
-import Footer  from "@/components/Footer";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Cormorant_Garamond, Jost } from "next/font/google";
 
 const cormorant = Cormorant_Garamond({
-  subsets:  ["latin"],
-  weight:   ["300", "400", "500", "600"],
-  style:    ["normal", "italic"],
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  style: ["normal", "italic"],
   variable: "--font-cormorant",
-  display:  "swap",
+  display: "swap",
 });
 
 const jost = Jost({
-  subsets:  ["latin"],
-  weight:   ["300", "400", "500", "600"],
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
   variable: "--font-jost",
-  display:  "swap",
+  display: "swap",
 });
 
 // ─────────────────────────────────────────────
 // SITE-WIDE CONSTANTS
 // ─────────────────────────────────────────────
 
-const SITE_URL="https://ecommerce.samirmagdy.com"
+const SITE_URL = "https://ecommerce.samirmagdy.com";
 const SITE_NAME = "SM Web Studio";
 const CONTACT_EMAIL = "studio@samirmagdy.com";
 const PHONE_NUMBER = "+201274613331";
 const TWITTER_HANDLE = "@SMWebStudioEG";
 
-const META_DESCRIPTION = "High-end web design studio offering premium quality at competitive rates. We bridge the gap between agency-level professionalism & freelancer flexibility.";
+const META_DESCRIPTION =
+  "Explore our exclusive live demo showcasing a stylish, user-friendly online fashion store. Curated collections and cutting-edge design, blending style and functionality.";
 
 const SOCIAL_LINKS = {
-  instagram: "https://www.instagram.com/smweb.studio",
-  facebook: "https://www.facebook.com/SMWebStudioEG",
+  instagram: "https://www.instagram.com/SMWebStudioEG",
   x: "https://x.com/SMWebStudioEG",
 } as const;
 
@@ -46,40 +46,38 @@ const SOCIAL_LINKS = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Own Your Online Store | SM Web Studio",
+  title: "Ecommerce Web Design Demo | Create an Online Store",
   description: META_DESCRIPTION,
   authors: [{ name: "Samir Magdy", url: SITE_URL }],
-   icons: {
-      icon: [
-         {
-          url: "/favicon.png",
-          type: "image/png",
-          sizes: "96x96",
-        },
-        {
-          url: "/favicon.ico",
-          type: "image/x-icon",
-          sizes: "48x48",
-        },
-        {
-          url: "/favicon-light.svg",
-          type: "image/svg+xml",
-          sizes: "any"
-        },
-        {
-          url: "/favicon-dark.svg",
-          type: "image/svg+xml",
-          sizes: "any",
-          media: "(prefers-color-scheme: dark)",
-        },
-      ],
+  icons: {
+    icon: [
+      {
+        url: "/favicon.png",
+        type: "image/png",
+        sizes: "96x96",
+      },
+      {
+        url: "/favicon.ico",
+        type: "image/x-icon",
+        sizes: "48x48",
+      },
+      {
+        url: "/favicon-light.svg",
+        type: "image/svg+xml",
+        sizes: "any",
+      },
+      {
+        url: "/favicon-dark.svg",
+        type: "image/svg+xml",
+        sizes: "any",
+        media: "(prefers-color-scheme: dark)",
+      },
+    ],
     apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
   },
-  alternates: {
-    canonical: SITE_URL,
-  },
+
   openGraph: {
-    title: "Expert Web Design in Egypt | SM Web Studio",
+    title: "Ecommerce Web Design Demo | Create an Online Store",
     description: META_DESCRIPTION,
     url: SITE_URL,
     siteName: SITE_NAME,
@@ -97,7 +95,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Expert Web Design in Egypt | SM Web Studio",
+    title: "Ecommerce Web Design Demo | Create an Online Store",
     description: META_DESCRIPTION,
     images: [`${SITE_URL}/open-graph.webp`],
     site: TWITTER_HANDLE,
@@ -150,7 +148,7 @@ const structuredData = {
       },
       hasOfferCatalog: {
         "@type": "OfferCatalog",
-        name: "Web Design & Development Services in Egypt",
+        name: "Web Design & Development Services",
         itemListElement: [
           {
             "@type": "Offer",
@@ -163,17 +161,9 @@ const structuredData = {
           },
         ],
       },
-      sameAs: [SOCIAL_LINKS.facebook, SOCIAL_LINKS.instagram, SOCIAL_LINKS.x],
+      sameAs: [SOCIAL_LINKS.instagram, SOCIAL_LINKS.x],
       founder: { "@id": `${SITE_URL}/#founder` },
       knowsLanguage: ["en", "ar"],
-      openingHoursSpecification: [
-        {
-          "@type": "OpeningHoursSpecification",
-          dayOfWeek: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
-          opens: "11:00",
-          closes: "19:00",
-        },
-      ],
     },
     {
       "@type": "WebSite",
@@ -187,7 +177,7 @@ const structuredData = {
       "@type": "WebPage",
       "@id": `${SITE_URL}/#webpage`,
       url: SITE_URL,
-      name: "Expert Web Design in Egypt | SM Web Studio",
+      name: "Ecommerce Web Design Demo | Create an Online Store",
       description: META_DESCRIPTION,
       inLanguage: "en",
       isPartOf: { "@id": `${SITE_URL}/#website` },
@@ -204,7 +194,11 @@ const structuredData = {
   ],
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en" className={`${cormorant.variable} ${jost.variable}`}>
       <body className="min-h-screen flex flex-col bg-leil-cream pb-6">
