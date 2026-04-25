@@ -5,7 +5,6 @@ import Link            from "next/link";
 import CartButton      from "./CartButton";
 import FilterButton    from "./FilterButton";
 import MiniCart        from "./MiniCart";
-import WhatsAppButton  from "./WhatsAppButton";
 
 export default function Navbar() {
   const pathname      = usePathname();
@@ -31,10 +30,7 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* WhatsApp CTA — desktop only, outside container, far right */}
-        <div className="hidden lg:block absolute right-8 top-2.5 h-full">
-          <WhatsAppButton inline />
-        </div>
+       
       </nav>
 
       <MiniCart />
