@@ -87,8 +87,9 @@ h1, h2, h3, h4 {
   text-align: center;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 0.5rem 18rem;
+  gap: 65rem;
   font-size: 0.8rem;
   opacity: 0;
   animation: bannerFadeIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
@@ -99,6 +100,7 @@ h1, h2, h3, h4 {
     gap: 0;
     font-size: 0.9rem;
     padding: 0.5rem 1.25rem;
+    justify-content: space-between;
   }
 }
 @keyframes bannerFadeIn {
