@@ -240,7 +240,7 @@ export default function HeroSection() {
       </div>
 
       {/* ── Bottom category marquee ── */}
-      <div className="relative z-10 border-t border-leil-dark/20 py-3 overflow-hidden bg-leil-cream/60 backdrop-blur-sm pb-16 md:pb-[4.5rem]">
+      <div className="relative z-10 border-t border-leil-dark/20 pt-3.5 overflow-hidden bg-leil-cream/60 backdrop-blur-sm pb-16">
         <div className="flex w-max animate-marquee-fast md:animate-marquee will-change-transform">
           <MarqueeTrack />
           <MarqueeTrack />

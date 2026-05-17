@@ -4,7 +4,6 @@ import { CartProvider } from "@/context/CartContext";
 import { FilterProvider } from "@/context/FilterContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
 import { Cormorant_Garamond, Jost } from "next/font/google";
 import { DemoBanner } from "@/components/DemoBanner";
 
@@ -214,7 +213,6 @@ export default function RootLayout({
             <Footer />
           </FilterProvider>
         </CartProvider>
-        <WhatsAppButton />
         <DemoBanner />
       </body>
     </html>

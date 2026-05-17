@@ -13,7 +13,12 @@
         <div className="demo-banner">
           <span className="banner-brand">
             Web Design by{" "}
-            <a href="https://smwebdesign.studio/en" target="_blank" rel="noopener">
+            <a
+              href="https://smwebdesign.studio/en"
+              target="_blank"
+              rel="noopener"
+              className="shimmer ms-2 font-medium shadow-lg py-1.5 px-3 rounded-md bg-gradient-to-b from-[#f3c25c] to-[#b78f47] text-gray-900 tracking-normal"
+            >
               SM Web Design Studio
             </a>
           </span>
