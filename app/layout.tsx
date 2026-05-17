@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Cormorant_Garamond, Jost } from "next/font/google";
+import { DemoBanner } from "@/components/DemoBanner";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -214,6 +215,7 @@ export default function RootLayout({
           </FilterProvider>
         </CartProvider>
         <WhatsAppButton />
+        <DemoBanner />
       </body>
     </html>
   );
