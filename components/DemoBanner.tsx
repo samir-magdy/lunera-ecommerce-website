@@ -12,7 +12,7 @@
       return (
         <div className="demo-banner">
           <span className="banner-brand">
-            Web Design by{" "}
+            Viewing Live Demo By
             <a
               href="https://smwebdesign.studio/en"
               target="_blank"
