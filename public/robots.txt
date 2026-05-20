@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://samirmagdy.com/sitemap.xml
+Sitemap: https://ecommerce.smwebdesign.studio/sitemap.xml

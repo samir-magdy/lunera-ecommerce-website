@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { CartProvider } from "@/context/CartContext";
 import { FilterProvider } from "@/context/FilterContext";
@@ -26,27 +26,33 @@ const jost = Jost({
 // SITE-WIDE CONSTANTS
 // ─────────────────────────────────────────────
 
-const SITE_URL = "https://ecommerce.samirmagdy.com";
-const SITE_NAME = "SM Web Studio";
+const SITE_URL = "https://ecommerce.smwebdesign.studio";
+const SITE_NAME = "SM Web Design Studio";
 const CONTACT_EMAIL = "studio@samirmagdy.com";
 const PHONE_NUMBER = "+201274613331";
-const TWITTER_HANDLE = "@SMWebStudioEG";
+const TWITTER_HANDLE = "@SMWebDesignCo";
 
 const META_DESCRIPTION =
-  "Explore our exclusive live demo showcasing a stylish, user-friendly online fashion store. Curated collections and cutting-edge design, blending style and functionality.";
+  "Explore our live demo showcasing a high-perfomance, user-friendly, online fashion store. Discover how we can help your business grow.";
 
 const SOCIAL_LINKS = {
-  instagram: "https://www.instagram.com/SMWebStudioEG",
-  x: "https://x.com/SMWebStudioEG",
+  instagram: "https://www.instagram.com/smwebdesign.studio/",
+  facebook: "https://facebook.com/SMWebDesignStudio",
 } as const;
 
 // ———————————————————————————————————————————
 // SEO METADATA
 // ———————————————————————————————————————————
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Ecommerce Web Design Demo | Create an Online Store",
+  title: "E-Commerce Website Demo | SM Web Design Studio | Egypt",
   description: META_DESCRIPTION,
   authors: [{ name: "Samir Magdy", url: SITE_URL }],
   icons: {
@@ -83,10 +89,10 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     images: [
       {
-        url: `${SITE_URL}/open-graph.webp`,
+        url: `${SITE_URL}/ecommerce.png`,
         width: 1200,
         height: 630,
-        alt: `${SITE_NAME} logo`,
+        alt: `Screenshot of ecommerce demo by ${SITE_NAME}`,
       },
     ],
     locale: "en_US",
@@ -161,7 +167,7 @@ const structuredData = {
           },
         ],
       },
-      sameAs: [SOCIAL_LINKS.instagram, SOCIAL_LINKS.x],
+      sameAs: [SOCIAL_LINKS.instagram, SOCIAL_LINKS.facebook],
       founder: { "@id": `${SITE_URL}/#founder` },
       knowsLanguage: ["en", "ar"],
     },

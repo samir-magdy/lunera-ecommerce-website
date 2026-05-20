@@ -59,20 +59,20 @@ export default function ProductImageGallery({
         <>
           <button
             onClick={() => scrollTo(current - 1)}
-            className={`absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 bg-leil-cream/90 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 ${current === 0 ? "hidden" : ""}`}
+            className={`absolute left-2 top-1/2 sm:bg-leil-cream/50 -translate-y-1/2 w-9 h-9 flex items-center justify-center ${current === 0 ? "hidden" : ""}`}
             aria-label="Previous image"
           >
-            <svg className="w-4 h-4 text-leil-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" />
+            <svg className="w-8 h-8 text-leil-dark/75" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
           <button
             onClick={() => scrollTo(current + 1)}
-            className={`absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 bg-leil-cream/90 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 ${current === images.length - 1 ? "hidden" : ""}`}
+            className={`absolute right-2 top-1/2 sm:bg-leil-cream/50 -translate-y-1/2 w-9 h-9 flex items-center justify-center ${current === images.length - 1 ? "hidden" : ""}`}
             aria-label="Next image"
           >
-            <svg className="w-4 h-4 text-leil-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
+            <svg className="w-8 h-8 text-leil-dark/75" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </button>
         </>
@@ -100,7 +100,7 @@ export default function ProductImageGallery({
               key={i}
               onClick={() => scrollTo(i)}
               className={`w-2 h-2 rounded-full transition-colors duration-200 ${
-                i === current ? "bg-leil-dark" : "bg-leil-dark/25"
+                i === current ? "bg-black/90" : "bg-black/60"
               }`}
               aria-label={`View image ${i + 1}`}
             />

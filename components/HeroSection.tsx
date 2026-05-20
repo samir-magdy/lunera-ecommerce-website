@@ -23,7 +23,7 @@ const HERO_IMAGES = [
     style: {
       transform: "rotate(-3deg)",
       bottom: "2rem",
-      left: "1rem",
+      left: "-2rem",
     } as React.CSSProperties,
     size: { w: 200, h: 290 },
     pos: "absolute",
@@ -47,7 +47,7 @@ const HERO_IMAGES = [
     style: {
       transform: "rotate(-1.5deg)",
       top: "2rem",
-      right: "1rem",
+      right: "-2rem",
     } as React.CSSProperties,
     size: { w: 185, h: 260 },
     pos: "absolute",
@@ -103,7 +103,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative min-h-[calc(100dvh-4rem)] bg-leil-cream overflow-hidden flex flex-col">
+    <section className="relative min-h-[calc(100dvh-4rem-env(safe-area-inset-bottom,0px))] bg-leil-cream overflow-hidden flex flex-col">
       {/* Grain texture */}
       <div className="absolute inset-0 bg-noise opacity-[0.025] pointer-events-none" />
 
@@ -112,7 +112,7 @@ export default function HeroSection() {
       <div className="hidden lg:block absolute bottom-0 left-1/4 w-[400px] h-[300px] rounded-full bg-leil-rose/5 blur-3xl pointer-events-none" />
 
       {/* ── Main content ── */}
-      <div className="relative z-10 flex-1 flex items-end lg:items-center px-6 sm:px-12 lg:px-20 pb-4 md:pb-000">
+      <div className="relative z-10 flex-1 flex items-end lg:items-center px-6 sm:px-12 lg:px-20 pt-8 lg:pt-0 pb-4 md:pb-0">
         <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 xl:gap-20 pb-10 lg:py-0">
           {/* Left — Editorial text */}
           <div className="flex flex-col justify-center">
@@ -142,8 +142,8 @@ export default function HeroSection() {
             </h1>
 
             <p className="font-body text-leil-dark/55 text-base lg:text-lg max-w-md leading-relaxed mb-10">
-              Curated fashion for the modern Egyptian woman — from everyday
-              elegance to statement pieces.
+              Curated fashion for the modern Egyptian woman
+              <p>From everyday elegance to statement pieces.</p> 
             </p>
 
             <div className="flex flex-wrap gap-3">

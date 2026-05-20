@@ -17,18 +17,12 @@ export async function generateStaticParams() {
 }
 
 // Generate metadata for SEO
-export async function generateMetadata({ params }: ProductPageProps) {
-  const { slug } = await params;
-  const product = productsData.find((p) => p.slug === slug);
-
-  if (!product) {
-    return { title: "Product Not Found" };
-  }
+export async function generateMetadata() {
 
   return {
-    title: `إنشاء متجر إلكتروني | SM Web Studio`,
+    title: `E-Commerce Website Demo | SM Web Design Studio | Egypt`,
     description:
-      "High-end web design studio offering premium quality at competitive rates. We bridge the gap between agency-level professionalism & freelancer flexibility.",
+    "Expert web design and development in Egypt. Discover how we can help your business grow.",
   };
 }
 

@@ -1,9 +1,9 @@
 import CheckoutPage from "@/components/checkout/CheckoutPage";
 
 export const metadata = {
-  title: "Checkout | SM Web Studio",
+  title: "E-Commerce Website Demo | SM Web Design Studio | Egypt",
   description:
-    "High-end web design studio offering premium quality at competitive rates. We bridge the gap between agency-level professionalism & freelancer flexibility.",
+    "Expert web design and development in Egypt. Discover how we can help your business grow.",
 };
 
 export default function Checkout() {

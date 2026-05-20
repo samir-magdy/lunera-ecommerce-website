@@ -88,7 +88,7 @@ h1, h2, h3, h4 {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem 18rem;
+  padding: 0.5rem 18rem calc(0.5rem + env(safe-area-inset-bottom, 0px));
   gap: 65rem;
   font-size: 0.8rem;
   opacity: 0;
@@ -99,8 +99,8 @@ h1, h2, h3, h4 {
   .demo-banner {
     gap: 0;
     font-size: 0.9rem;
-    padding: 0.5rem 1.25rem;
-    justify-content: space-between;
+    padding: 0.5rem 1.25rem calc(0.5rem + env(safe-area-inset-bottom, 0px));
+    justify-content: center;
   }
 }
 @keyframes bannerFadeIn {
