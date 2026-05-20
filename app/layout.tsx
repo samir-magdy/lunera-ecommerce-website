@@ -103,7 +103,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Ecommerce Web Design Demo | Create an Online Store",
     description: META_DESCRIPTION,
-    images: [`${SITE_URL}/open-graph.webp`],
+    images: [`${SITE_URL}/ecommerce.png`],
     site: TWITTER_HANDLE,
   },
   robots: {
@@ -134,7 +134,7 @@ const structuredData = {
       url: SITE_URL,
       telephone: PHONE_NUMBER,
       email: CONTACT_EMAIL,
-      image: `${SITE_URL}/open-graph.webp`,
+      image: `${SITE_URL}/ecommerce.png`,
       logo: `${SITE_URL}/business-logo.png`,
       address: {
         "@type": "PostalAddress",
