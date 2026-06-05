@@ -1,12 +1,29 @@
 "use client";
 
   import { useSearchParams } from "next/navigation";
-  import { Suspense } from "react";
+  import { Suspense, useEffect } from "react";
+
+  const session = {
+    get: (key: string) =>
+      typeof window !== "undefined" ? sessionStorage.getItem(key) : null,
+    set: (key: string, value: string) =>
+      typeof window !== "undefined" && sessionStorage.setItem(key, value),
+  };
 
   function BannerContent() {
     const searchParams = useSearchParams();
-    const isInternal = searchParams.get("ref") === "smws";
-    const isArabic = searchParams.get("lang") === "ar";
+
+    const refParam = searchParams.get("ref");
+    const langParam = searchParams.get("lang");
+
+    // Persist ref/lang on first arrival so they survive client-side navigation
+    useEffect(() => {
+      if (refParam === "smws") session.set("smws_ref", "smws");
+      if (langParam === "ar") session.set("smws_lang", "ar");
+    }, [refParam, langParam]);
+
+    const isInternal = refParam === "smws" || session.get("smws_ref") === "smws";
+    const isArabic = langParam === "ar" || session.get("smws_lang") === "ar";
 
     if (!isInternal) {
       return (
