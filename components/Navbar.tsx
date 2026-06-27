@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import Link            from "next/link";
+import Image           from "next/image";
 import CartButton      from "./CartButton";
 import FilterButton    from "./FilterButton";
 import MiniCart        from "./MiniCart";
@@ -18,9 +19,16 @@ export default function Navbar() {
             {/* Logo */}
             <Link
               href="/#collection"
-              className="font-display text-4xl
-               text-leil-cream flex-shrink-0"
-            >SM
+              className="flex-shrink-0"
+            >
+              <Image
+                src="/LUNERA.svg"
+                alt="Lunera"
+                width={496}
+                height={161}
+                priority
+                className="h-9 w-auto"
+              />
             </Link>
 
             {/* Right controls */}

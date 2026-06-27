@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import Image         from "next/image";
 
 export default function Footer() {
   const router = useRouter();
@@ -17,11 +18,17 @@ export default function Footer() {
 
           {/* Brand */}
           <div>
-            <h3 className="font-display text-2xl font-bold tracking-[0.12em] text-leil-rose-light mb-4">
-              SM Web Studio
-            </h3>
-            <p className="font-body text-sm text-leil-cream/90 leading-relaxed max-w-xs">
-              Curated fashion for the modern Egyptian woman.
+            <Image
+              src="/LUNERA.svg"
+              alt="Lunera"
+              width={496}
+              height={161}
+              className="h-10 w-auto mb-4"
+            />
+            <p className="font-body text-sm sm:text-base text-leil-cream/90 leading-relaxed max-w-[225px]">
+              Curated fashion for the modern Egyptian woman. Lunera blends timeless
+              elegance with everyday ease — thoughtfully designed pieces made to be
+              worn, loved, and remembered.
             </p>
           </div>
 
