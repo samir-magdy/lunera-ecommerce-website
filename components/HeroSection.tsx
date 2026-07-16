@@ -116,11 +116,11 @@ export default function HeroSection() {
         <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 xl:gap-20 pb-10 lg:py-0">
           {/* Left — Editorial text */}
           <div className="flex flex-col justify-center">
-            <span className="font-body text-[0.7rem] tracking-[0.35em] uppercase text-leil-rose mb-8 block">
-              New Collection — 2026
-            </span>
+            <h1 className="font-body text-[0.6rem] sm:text-xs tracking-[0.12em] sm:tracking-[0.2em] uppercase text-leil-rose mb-8 block">
+              Fashion E-Commerce Website Design in Egypt
+            </h1>
 
-            <h1 className="font-display font-light leading-[0.92] text-leil-dark mb-8 text-balance">
+            <h2 className="font-display font-light leading-[0.92] text-leil-dark mb-8 text-balance">
               <span className="block text-[clamp(3.2rem,7.5vw,6.5rem)]">
                 Discover
               </span>
@@ -139,11 +139,11 @@ export default function HeroSection() {
                   {CYCLING_WORDS[wordIndex]}
                 </span>
               </span>
-            </h1>
+            </h2>
 
             <p className="font-body text-leil-dark/55 text-base lg:text-lg max-w-md leading-relaxed mb-10">
               Curated fashion for the modern Egyptian woman
-              <p>From everyday elegance to statement pieces.</p> 
+              <span className="block">From everyday elegance to statement pieces.</span>
             </p>
 
             <div className="flex flex-wrap gap-3">

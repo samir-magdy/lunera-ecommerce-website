@@ -27,7 +27,7 @@
 
     if (!isInternal) {
       return (
-        <div className="demo-banner">
+        <div className="demo-banner demo-banner--center">
           <span className="banner-brand">Live Demo By
             <a
               href="https://smwebdesign.studio/en"
