@@ -52,7 +52,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Fashion E-Commerce Website | SM Web Design Studio",
+  title: "Fashion E-Commerce Website Design | SM Web Design Studio",
   description: META_DESCRIPTION,
   authors: [{ name: "Samir Magdy", url: SITE_URL }],
   icons: {
