@@ -87,9 +87,8 @@ h1, h2, h3, h4 {
   text-align: center;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   padding: 0.5rem 18rem calc(0.5rem + env(safe-area-inset-bottom, 0px));
-  gap: 65rem;
   font-size: 0.8rem;
   opacity: 0;
   animation: bannerFadeIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
@@ -97,10 +96,9 @@ h1, h2, h3, h4 {
 }
 @media (max-width: 640px) {
   .demo-banner {
-    gap: 5.5rem;
     font-size: 0.9rem;
     padding: 0.5rem 1.25rem calc(0.5rem + env(safe-area-inset-bottom, 0px));
-    justify-content: center;
+    justify-content: space-between;
   }
 }
 @keyframes bannerFadeIn {
