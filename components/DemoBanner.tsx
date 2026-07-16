@@ -59,7 +59,7 @@
           className="banner-cta"
           href={`https://smwebdesign.studio/${isArabic ? "ar" : "en"}#contact`}
         >
-          {isArabic ? "احصل على موقعك" : "Get a Site Like This"}
+          {isArabic ? "احصل على موقعك" : "Get Your Website"}
           <svg className={isArabic ? "rotate-180" : ""} width="14" height="12" viewBox="0 0 14 12" fill="none" aria-hidden>
             <path d="M2 6H12M8 1L12 6L8 11" stroke="currentColor" strokeWidth="2.5" strokeLinecap="square" strokeLinejoin="miter" />
           </svg>
