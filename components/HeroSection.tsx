@@ -1,5 +1,7 @@
 "use client";
 
+// For Re-deploy
+
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
@@ -119,7 +121,7 @@ export default function HeroSection() {
             <h1 className="font-body text-[0.6rem] sm:text-xs tracking-[0.12em] sm:tracking-[0.2em] uppercase text-leil-rose mb-8 block">
               Fashion E-Commerce Website Design in Egypt
             </h1>
-
+            
             <h2 className="font-display font-light leading-[0.92] text-leil-dark mb-8 text-balance">
               <span className="block text-[clamp(3.2rem,7.5vw,6.5rem)]">
                 Discover
