@@ -30,7 +30,7 @@
         <div className="demo-banner demo-banner--center">
           <span className="banner-brand">Live Demo By
             <a
-              href="https://smwebdesign.studio/en"
+              href="https://smweb.studio/en"
               target="_blank"
               rel="noopener"
               className="shimmer ms-2 font-medium shadow-lg py-1.5 px-3 rounded-md bg-gradient-to-b from-[#f3c25c] to-[#b78f47] text-gray-900 tracking-normal"
@@ -57,7 +57,7 @@
 
         <a
           className="banner-cta"
-          href={`https://smwebdesign.studio/${isArabic ? "ar" : "en"}#contact`}
+          href={`https://smweb.studio/${isArabic ? "ar" : "en"}#contact`}
         >
           {isArabic ? "احصل على موقعك" : "Get Your Website"}
           <svg className={isArabic ? "rotate-180" : ""} width="14" height="12" viewBox="0 0 14 12" fill="none" aria-hidden>

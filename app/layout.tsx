@@ -27,17 +27,16 @@ const jost = Jost({
 // ─────────────────────────────────────────────
 
 const SITE_URL = "https://ecommerce.smwebdesign.studio";
-const SITE_NAME = "SM Web Design Studio";
+const SITE_NAME = "SM Web Studio";
 const CONTACT_EMAIL = "studio@samirmagdy.com";
-const PHONE_NUMBER = "+201274613331";
-const TWITTER_HANDLE = "@SMWebDesignCo";
+const PHONE_NUMBER = "+201233386157";
 
 const META_DESCRIPTION =
   "Explore our live demo showcasing a high-perfomance, user-friendly, online fashion store. Discover how we can help your business grow.";
 
 const SOCIAL_LINKS = {
-  instagram: "https://www.instagram.com/smwebdesign.studio/",
-  facebook: "https://facebook.com/SMWebDesignStudio",
+  instagram: "https://www.instagram.com/smweb.studio/",
+  facebook: "https://facebook.com/SMWebStudioEgypt",
 } as const;
 
 // ———————————————————————————————————————————
@@ -98,13 +97,6 @@ export const metadata: Metadata = {
     locale: "en_US",
     alternateLocale: "ar_EG",
     type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Ecommerce Web Design Demo | Create an Online Store",
-    description: META_DESCRIPTION,
-    images: [`${SITE_URL}/ecommerce.webp`],
-    site: TWITTER_HANDLE,
   },
   robots: {
     index: true,

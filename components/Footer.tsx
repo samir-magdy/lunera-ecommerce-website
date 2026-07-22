@@ -106,7 +106,7 @@ export default function Footer() {
             </h4>
             <div className="flex gap-4">
               <a
-                href="https://www.instagram.com/smwebdesign.studio"
+                href="https://www.instagram.com/smweb.studio"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -117,7 +117,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://facebook.com/SMWebDesignStudio"
+                href="https://facebook.com/SMWebStudioEgypt"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
@@ -135,12 +135,12 @@ export default function Footer() {
           <p className="font-body text-xs text-leil-cream/60 tracking-wide">
             © {new Date().getFullYear()} All rights reserved.&nbsp;
               <a
-                href="https://smwebdesign.studio"
+                href="https://smweb.studio"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-leil-cream/80 underline underline-offset-2 decoration-leil-cream/25 hover:text-leil-rose hover:decoration-leil-rose transition-colors duration-200"
               >
-                SM Web Design Studio
+                SM Web Studio
               </a>
           </p>
           
