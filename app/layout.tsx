@@ -26,7 +26,7 @@ const jost = Jost({
 // SITE-WIDE CONSTANTS
 // ─────────────────────────────────────────────
 
-const SITE_URL = "https://ecommerce.smwebdesign.studio";
+const SITE_URL = "https://lunera.smweb.studio";
 const SITE_NAME = "SM Web Studio";
 const CONTACT_EMAIL = "info@smweb.studio";
 const PHONE_NUMBER = "+201233386157";

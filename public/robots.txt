@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://ecommerce.smwebdesign.studio/sitemap.xml
+Sitemap: https://lunera.smweb.studio/sitemap.xml

@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import productsData from "@/data/products.json";
 
-const SITE_URL = "https://ecommerce.smwebdesign.studio";
+const SITE_URL = "https://lunera.smweb.studio";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
