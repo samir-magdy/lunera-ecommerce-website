@@ -28,7 +28,7 @@ const jost = Jost({
 
 const SITE_URL = "https://ecommerce.smwebdesign.studio";
 const SITE_NAME = "SM Web Studio";
-const CONTACT_EMAIL = "studio@samirmagdy.com";
+const CONTACT_EMAIL = "info@smweb.studio";
 const PHONE_NUMBER = "+201233386157";
 
 const META_DESCRIPTION =
@@ -36,7 +36,7 @@ const META_DESCRIPTION =
 
 const SOCIAL_LINKS = {
   instagram: "https://www.instagram.com/smweb.studio/",
-  facebook: "https://facebook.com/SMWebStudioEgypt",
+  linkedin: "https://www.linkedin.com/company/sm-web-studio-egypt/",
 } as const;
 
 // ———————————————————————————————————————————
@@ -159,7 +159,7 @@ const structuredData = {
           },
         ],
       },
-      sameAs: [SOCIAL_LINKS.instagram, SOCIAL_LINKS.facebook],
+      sameAs: [SOCIAL_LINKS.instagram, SOCIAL_LINKS.linkedin],
       founder: { "@id": `${SITE_URL}/#founder` },
       knowsLanguage: ["en", "ar"],
     },

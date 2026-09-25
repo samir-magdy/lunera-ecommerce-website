@@ -60,7 +60,7 @@ export default function Footer() {
             <ul className="space-y-3 font-body text-sm">
               <li>
                 <a
-                  href="https://wa.me/201000000000"
+                  href="https://wa.me/+201233386157"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2.5 text-leil-cream hover:text-leil-rose transition-colors duration-200"
@@ -80,19 +80,19 @@ export default function Footer() {
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="w-4 h-4 shrink-0">
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.28 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.19 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
                   </svg>
-                  01274613331
+                  +201233386157
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:studio@samirmagdy.com"
+                  href="mailto:info@smweb.studio"
                   className="flex items-center gap-2.5 text-leil-cream hover:text-leil-rose transition-colors duration-200"
                 >
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="w-4 h-4 shrink-0">
                     <rect x="2" y="4" width="20" height="16" rx="2"/>
                     <path d="m2 7 10 7 10-7"/>
                   </svg>
-                  studio@samirmagdy.com
+                  info@smweb.studio
                 </a>
               </li>
            
@@ -104,7 +104,7 @@ export default function Footer() {
             <h4 className="font-body text-[0.65rem] tracking-[0.3em] uppercase text-leil-rose-light mb-4">
               Follow Us
             </h4>
-            <div className="flex gap-4">
+            <div className="flex items-center gap-4">
               <a
                 href="https://www.instagram.com/smweb.studio"
                 target="_blank"
@@ -117,14 +117,14 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://facebook.com/SMWebStudioEgypt"
+                href="https://www.linkedin.com/company/sm-web-studio-egypt/"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Facebook"
+                aria-label="LinkedIn"
                 className="text-leil-cream/90 hover:text-leil-rose transition-colors duration-200"
               >
-                <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-                  <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.235 2.686.235v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.27h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
+                <svg viewBox="-1.2 -1.2 26.4 26.4" fill="currentColor" fillRule="evenodd" className="w-[22px] h-[22px]">
+                  <path d="M.8-1.2h22.4a2 2 0 012 2v22.4a2 2 0 01-2 2H.8a2 2 0 01-2-2V.8a2 2 0 012-2zM20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/>
                 </svg>
               </a>
             </div>
