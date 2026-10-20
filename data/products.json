@@ -5,9 +5,9 @@
     "title": "Floral Print Midi Dress",
     "price": 1299,
     "category": "Dresses",
-    "image": "/products/floral-midi-dress-1.jpg",
+    "image": "/products/floral-midi-dress-1.webp",
     "images": [
-      "/products/floral-midi-dress-1.jpg"
+      "/products/floral-midi-dress-1.webp"
     ],
     "description": "A flowing midi dress in a bold floral print on a deep navy ground. Features a V-neckline, button-front bodice, short sleeves, and a tiered hem on breathable fabric.",
     "inStock": true
@@ -18,9 +18,9 @@
     "title": "Classic Black Leather Handbag",
     "price": 899,
     "category": "Accessories",
-    "image": "/products/classic-black-bag-1.jpg",
+    "image": "/products/classic-black-bag-1.webp",
     "images": [
-      "/products/classic-black-bag-1.jpg"
+      "/products/classic-black-bag-1.webp"
     ],
     "description": "A timeless structured handbag in smooth black leather. Twin top handles, a front flap pocket, and silver-tone hardware — effortlessly elegant for everyday wear.",
     "inStock": true
@@ -31,9 +31,9 @@
     "title": "Olive Wide-Leg Trousers",
     "price": 749,
     "category": "Bottoms",
-    "image": "/products/olive-wide-leg-trousers-1.jpg",
+    "image": "/products/olive-wide-leg-trousers-1.webp",
     "images": [
-      "/products/olive-wide-leg-trousers-1.jpg"
+      "/products/olive-wide-leg-trousers-1.webp"
     ],
     "description": "Relaxed wide-leg trousers in a soft olive green. High-waisted with a fluid, floor-grazing leg — tailored to move with you in the Egyptian heat.",
     "inStock": true
@@ -44,9 +44,9 @@
     "title": "Red Embroidered Occasion Dress",
     "price": 2199,
     "category": "Dresses",
-    "image": "/products/embroidered-occasion-dress-1.jpg",
+    "image": "/products/embroidered-occasion-dress-1.webp",
     "images": [
-      "/products/embroidered-occasion-dress-1.jpg"
+      "/products/embroidered-occasion-dress-1.webp"
     ],
     "description": "A statement occasion dress in vivid red with delicate floral embroidery throughout. Wrap-style bodice, woven belt, and a full flared skirt — made for weddings, engagements, and celebrations.",
     "inStock": false
@@ -57,9 +57,9 @@
     "title": "Ribbed Knit Crop Top",
     "price": 449,
     "category": "Tops",
-    "image": "/products/ribbed-knit-top-1.jpg",
+    "image": "/products/ribbed-knit-top-1.webp",
     "images": [
-      "/products/ribbed-knit-top-1.jpg"
+      "/products/ribbed-knit-top-1.webp"
     ],
     "description": "A soft ribbed knit crop top in powder blue with a straight neckline and thin straps. Versatile enough to pair with high-waisted trousers or layer under a blazer.",
     "inStock": true
@@ -70,11 +70,11 @@
     "title": "Pleated Chiffon Midi Skirt",
     "price": 799,
     "category": "Bottoms",
-    "image": "/products/pleated-midi-skirt-1.jpg",
+    "image": "/products/pleated-midi-skirt-1.webp",
     "images": [
-      "/products/pleated-midi-skirt-1.jpg",
-      "/products/pleated-midi-skirt-2.jpg",
-      "/products/pleated-midi-skirt-3.jpg"
+      "/products/pleated-midi-skirt-1.webp",
+      "/products/pleated-midi-skirt-2.webp",
+      "/products/pleated-midi-skirt-3.webp"
     ],
     "description": "A fluid ivory midi skirt in finely pleated chiffon. Elegant drape with a comfortable elastic waistband — easy to dress up or down.",
     "inStock": true
@@ -85,9 +85,9 @@
     "title": "Grey Check Double-Breasted Blazer",
     "price": 1599,
     "category": "Outerwear",
-    "image": "/products/structured-blazer-1.jpg",
+    "image": "/products/structured-blazer-1.webp",
     "images": [
-      "/products/structured-blazer-1.jpg"
+      "/products/structured-blazer-1.webp"
     ],
     "description": "A sharp double-breasted blazer in a classic grey check. Sharp lapels, flap pockets, and a relaxed longline cut — the kind of piece that elevates everything underneath.",
     "inStock": true
@@ -98,9 +98,9 @@
     "title": "Pearl Drop Earrings",
     "price": 349,
     "category": "Accessories",
-    "image": "/products/pearl-drop-earrings-1.jpg",
+    "image": "/products/pearl-drop-earrings-1.webp",
     "images": [
-      "/products/pearl-drop-earrings-1.jpg"
+      "/products/pearl-drop-earrings-1.webp"
     ],
     "description": "Delicate faux pearl drop earrings suspended from polished gold-tone studs. Lightweight and elegant — the finishing touch for any outfit.",
     "inStock": true
@@ -111,11 +111,11 @@
     "title": "Red Satin Evening Gown",
     "price": 3299,
     "category": "Dresses",
-    "image": "/products/satin-evening-gown-1.jpg",
+    "image": "/products/satin-evening-gown-1.webp",
     "images": [
-      "/products/satin-evening-gown-1.jpg",
-      "/products/satin-evening-gown-2.jpg",
-      "/products/satin-evening-gown-3.jpg"
+      "/products/satin-evening-gown-1.webp",
+      "/products/satin-evening-gown-2.webp",
+      "/products/satin-evening-gown-3.webp"
     ],
     "description": "A sweeping red satin gown with a plunging V-neckline and a dramatic thigh-high slit. Floor-length and fluid — for evenings that deserve something extraordinary.",
     "inStock": true
@@ -126,9 +126,9 @@
     "title": "Printed Silk Scarf",
     "price": 399,
     "category": "Accessories",
-    "image": "/products/printed-silk-scarf-1.jpg",
+    "image": "/products/printed-silk-scarf-1.webp",
     "images": [
-      "/products/printed-silk-scarf-1.jpg"
+      "/products/printed-silk-scarf-1.webp"
     ],
     "description": "A luxurious silk scarf in a rich floral print with a deep red border. Wear as a headscarf, tie around the neck, or knot through a bag handle.",
     "inStock": true
@@ -139,9 +139,9 @@
     "title": "Embroidered Open Abaya",
     "price": 1399,
     "category": "Abayas",
-    "image": "/products/open-abaya-embroidered-1.jpg",
+    "image": "/products/open-abaya-embroidered-1.webp",
     "images": [
-      "/products/open-abaya-embroidered-1.jpg"
+      "/products/open-abaya-embroidered-1.webp"
     ],
     "description": "A black open-front abaya with contrast white embroidery along the lapel and front panels. Fluid, floor-length, and worn over a crisp white inner layer.",
     "inStock": true
@@ -152,9 +152,9 @@
     "title": "Tan Leather Tote",
     "price": 1999,
     "category": "Accessories",
-    "image": "/products/leather-tote-bag-1.jpg",
+    "image": "/products/leather-tote-bag-1.webp",
     "images": [
-      "/products/leather-tote-bag-1.jpg"
+      "/products/leather-tote-bag-1.webp"
     ],
     "description": "A tote in rich tan leather that develops character with every wear. Clean rectangular silhouette, spacious main compartment, and sturdy shoulder handles — built for daily elegance.",
     "inStock": false
@@ -165,10 +165,10 @@
     "title": "Printed Maxi Kaftan Dress",
     "price": 1149,
     "category": "Dresses",
-    "image": "/products/printed-kaftan-dress-1.jpg",
+    "image": "/products/printed-kaftan-dress-1.webp",
     "images": [
-      "/products/printed-kaftan-dress-1.jpg",
-      "/products/printed-kaftan-dress-2.jpg"
+      "/products/printed-kaftan-dress-1.webp",
+      "/products/printed-kaftan-dress-2.webp"
     ],
     "description": "A relaxed maxi kaftan in a blue and white block print. Wide sleeves, a V-neckline, side slits, and a drawstring waist — effortlessly cool for warm Egyptian evenings.",
     "inStock": true
@@ -179,10 +179,10 @@
     "title": "Belted Crepe Abaya",
     "price": 1749,
     "category": "Abayas",
-    "image": "/products/belted-abaya-1.jpg",
+    "image": "/products/belted-abaya-1.webp",
     "images": [
-      "/products/belted-abaya-1.jpg",
-      "/products/belted-abaya-2.jpg"
+      "/products/belted-abaya-1.webp",
+      "/products/belted-abaya-2.webp"
     ],
     "description": "A taupe crepe abaya with a slim self-tie belt at the waist and softly flared cuffs. Clean lines and a fluid drape — made for special occasions.",
     "inStock": true
@@ -193,10 +193,10 @@
     "title": "Oversized Beige Blazer",
     "price": 1349,
     "category": "Outerwear",
-    "image": "/products/oversized-blazer-1.jpg",
+    "image": "/products/oversized-blazer-1.webp",
     "images": [
-      "/products/oversized-blazer-1.jpg",
-      "/products/oversized-blazer-2.jpg"
+      "/products/oversized-blazer-1.webp",
+      "/products/oversized-blazer-2.webp"
     ],
     "description": "An oversized blazer in soft beige with dropped shoulders and a relaxed fit. Wear open over a slip top or buttoned as a standalone piece.",
     "inStock": true
@@ -207,9 +207,9 @@
     "title": "Pinstripe Palazzo Trousers",
     "price": 849,
     "category": "Bottoms",
-    "image": "/products/high-waist-palazzo-1.jpg",
+    "image": "/products/high-waist-palazzo-1.webp",
     "images": [
-      "/products/high-waist-palazzo-1.jpg"
+      "/products/high-waist-palazzo-1.webp"
     ],
     "description": "Sweeping high-waisted palazzo trousers in black with a bold white pinstripe. Full-length wide legs — elegant movement with every step.",
     "inStock": true
@@ -220,10 +220,10 @@
     "title": "Striped Off-Shoulder Ruffle Top",
     "price": 549,
     "category": "Tops",
-    "image": "/products/off-shoulder-top-1.jpg",
+    "image": "/products/off-shoulder-top-1.webp",
     "images": [
-      "/products/off-shoulder-top-1.jpg",
-      "/products/off-shoulder-top-2.jpg"
+      "/products/off-shoulder-top-1.webp",
+      "/products/off-shoulder-top-2.webp"
     ],
     "description": "A breezy off-shoulder top in navy and white Breton stripes. Elasticated neckline with a layered ruffle overlay — pairs perfectly with tailored trousers.",
     "inStock": true
@@ -234,9 +234,9 @@
     "title": "Wide Gold Cuff Bracelet",
     "price": 429,
     "category": "Accessories",
-    "image": "/products/gold-cuff-bracelet-1.jpg",
+    "image": "/products/gold-cuff-bracelet-1.webp",
     "images": [
-      "/products/gold-cuff-bracelet-1.jpg"
+      "/products/gold-cuff-bracelet-1.webp"
     ],
     "description": "A bold wide cuff bracelet in high-polish gold-tone metal. Slightly adjustable opening, smooth domed profile — a statement piece worn alone or stacked.",
     "inStock": true
@@ -247,9 +247,9 @@
     "title": "Floral Maxi Wrap Dress",
     "price": 1499,
     "category": "Dresses",
-    "image": "/products/maxi-wrap-dress-1.jpg",
+    "image": "/products/maxi-wrap-dress-1.webp",
     "images": [
-      "/products/maxi-wrap-dress-1.jpg"
+      "/products/maxi-wrap-dress-1.webp"
     ],
     "description": "A floor-length wrap dress in ivory with a scattered rose print. Tie waist, V-neckline, and a flowing slit skirt that flatters every figure.",
     "inStock": true
@@ -260,9 +260,9 @@
     "title": "Black Satin Lace-Trim Cami",
     "price": 699,
     "category": "Tops",
-    "image": "/products/satin-cami-top-1.jpg",
+    "image": "/products/satin-cami-top-1.webp",
     "images": [
-      "/products/satin-cami-top-1.jpg"
+      "/products/satin-cami-top-1.webp"
     ],
     "description": "A minimalist black satin cami with a delicate lace-trimmed neckline and thin adjustable straps. Layer under a blazer or wear alone for understated elegance.",
     "inStock": false

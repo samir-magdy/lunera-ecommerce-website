@@ -20,7 +20,7 @@ const CATEGORIES = [
 
 const HERO_IMAGES = [
   {
-    src: "/hero/hero-1.jpg",
+    src: "/hero/hero-1.webp",
     alt: "Fashion lookbook",
     style: {
       transform: "rotate(-3deg)",
@@ -32,7 +32,7 @@ const HERO_IMAGES = [
     zIndex: 1,
   },
   {
-    src: "/hero/hero-2.jpg",
+    src: "/hero/hero-2.webp",
     alt: "Editorial fashion",
     style: {
       transform: "rotate(2deg)",
@@ -44,7 +44,7 @@ const HERO_IMAGES = [
     label: "New Arrivals",
   },
   {
-    src: "/hero/hero-3.jpg",
+    src: "/hero/hero-3.webp",
     alt: "Style portrait",
     style: {
       transform: "rotate(-1.5deg)",
