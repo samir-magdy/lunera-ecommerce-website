@@ -1,6 +1,7 @@
 'use client'
 
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react'
+import productsData from '@/data/products.json'
 
 export interface CartItem {
   id: string
@@ -36,7 +37,12 @@ export function CartProvider({ children }: { children: ReactNode }) {
     const savedCart = localStorage.getItem('e-commerce-cart')
     if (savedCart) {
       try {
-        setCart(JSON.parse(savedCart))
+        // Refresh saved items from current product data and drop any that no longer exist
+        const saved: CartItem[] = JSON.parse(savedCart)
+        setCart(saved.flatMap(item => {
+          const p = productsData.find(p => p.id === item.id)
+          return p ? [{ ...item, slug: p.slug, title: p.title, price: p.price, image: p.image }] : []
+        }))
       } catch (error) {
         console.error('Failed to load cart from localStorage:', error)
       }

@@ -5,7 +5,6 @@ import { FilterProvider } from "@/context/FilterContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Cormorant_Garamond, Jost } from "next/font/google";
-import { DemoBanner } from "@/components/DemoBanner";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -51,7 +50,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Fashion E-Commerce Website Design in Egypt | SM Web Design Studio",
+  title: "E-commerce Development in Egypt | SM Web Studio",
   description: META_DESCRIPTION,
   authors: [{ name: "Samir Magdy", url: SITE_URL }],
   icons: {
@@ -199,7 +198,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${cormorant.variable} ${jost.variable}`}>
-      <body className="min-h-screen flex flex-col bg-leil-cream pb-6">
+      <body className="min-h-screen flex flex-col bg-leil-cream">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
@@ -211,7 +210,6 @@ export default function RootLayout({
             <Footer />
           </FilterProvider>
         </CartProvider>
-        <DemoBanner />
       </body>
     </html>
   );

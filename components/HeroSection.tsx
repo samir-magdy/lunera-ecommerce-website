@@ -20,7 +20,7 @@ const CATEGORIES = [
 
 const HERO_IMAGES = [
   {
-    src: "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=800&q=80",
+    src: "/hero/hero-1.jpg",
     alt: "Fashion lookbook",
     style: {
       transform: "rotate(-3deg)",
@@ -32,7 +32,7 @@ const HERO_IMAGES = [
     zIndex: 1,
   },
   {
-    src: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=1200&q=80",
+    src: "/hero/hero-2.jpg",
     alt: "Editorial fashion",
     style: {
       transform: "rotate(2deg)",
@@ -44,7 +44,7 @@ const HERO_IMAGES = [
     label: "New Arrivals",
   },
   {
-    src: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=800&q=80",
+    src: "/hero/hero-3.jpg",
     alt: "Style portrait",
     style: {
       transform: "rotate(-1.5deg)",
@@ -118,8 +118,8 @@ export default function HeroSection() {
         <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 xl:gap-20 pb-10 lg:py-0">
           {/* Left — Editorial text */}
           <div className="flex flex-col justify-center">
-            <h1 className="font-body text-[0.6rem] sm:text-xs tracking-[0.12em] sm:tracking-[0.2em] uppercase text-leil-rose mb-8 block">
-              Fashion E-Commerce Website Design in Egypt
+            <h1 className="font-body text-[0.6rem] sm:text-xs tracking-[0.05em] sm:tracking-[0.15em] uppercase text-leil-rose mb-8 block">
+              SM Web Studio - Lunera 
             </h1>
             
             <h2 className="font-display font-light leading-[0.92] text-leil-dark mb-8 text-balance">
@@ -242,7 +242,7 @@ export default function HeroSection() {
       </div>
 
       {/* ── Bottom category marquee ── */}
-      <div className="relative z-10 border-t border-leil-dark/20 pt-3.5 overflow-hidden bg-leil-cream/60 backdrop-blur-sm pb-16">
+      <div className="relative z-10 border-t border-leil-dark/20 py-3.5 overflow-hidden bg-leil-cream/60 backdrop-blur-sm">
         <div className="flex w-max animate-marquee-fast md:animate-marquee will-change-transform">
           <MarqueeTrack />
           <MarqueeTrack />
